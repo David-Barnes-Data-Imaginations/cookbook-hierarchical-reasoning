@@ -1,0 +1,14 @@
+.env
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.vscode/
+
+# Secrets
+persona-forge-*.json
+
+# specific unsloth cache
+unsloth_compiled_cache/
+
+# Training outputs
+gemma-3-reasoning-output/

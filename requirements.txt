@@ -1,0 +1,5 @@
+google-cloud-aiplatform 
+google-auth
+tqdm
+vertexai
+google-genai>=1.51.0
