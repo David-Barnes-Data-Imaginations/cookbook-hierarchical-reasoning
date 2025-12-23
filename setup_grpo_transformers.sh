@@ -17,7 +17,7 @@ echo "🗑️  Removing Unsloth (to avoid patching conflicts)..."
 pip uninstall -y unsloth unsloth_zoo 2>/dev/null || true
 
 echo "⬇️  Installing core libraries for GRPO with Transformers..."
-pip install --upgrade --no-cache-dir \
+uv pip install --upgrade --no-cache-dir \
     "torch>=2.0.0" \
     "transformers>=4.45.0" \
     "trl>=0.11.0" \
