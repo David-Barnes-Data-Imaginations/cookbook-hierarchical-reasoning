@@ -2,7 +2,13 @@
 ./setup_grpo_transformers.sh
 
 # first:
-ssh -o ServerAliveInterval=30 -i ~/.ssh/id_ed25519 -L 8888:localhost:8888 dataimaginations-heirarchical-reasoning@ssh.hf.space
+ssh -o ServerAliveInterval=60 -i ~/.ssh/id_ed25519 -L 8888:localhost:8888 dataimaginations-heirarchical-reasoning@ssh.hf.space
+
+# OR with tensorboard:
+ssh -o ServerAliveInterval=60 -i ~/.ssh/id_ed25519 -L 8888:localhost:8888 -L 6006:localhost:6006 dataimaginations-heirarchical-reasoning@ssh.hf.space
+
+# OR stable:
+ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=10 -i ~/.ssh/id_ed25519 -L 8888:localhost:8888 -L 6006:localhost:6006 dataimaginations-heirarchical-reasoning@ssh.hf.space
 
 # then:
 /home/user/miniconda/bin/jupyter lab --port 8888 --no-browser --ip=0.0.0.0 --NotebookApp.token='huggingface'
