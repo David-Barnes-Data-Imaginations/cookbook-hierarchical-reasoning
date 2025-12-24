@@ -1,0 +1,146 @@
+[
+  {
+    "prompt": "In a Modigliani-Miller world with no taxes, Firm U is unlevered with an EBIT of $100,000 in perpetuity and a 10% cost of capital. Firm L is identical but has $200,000 in debt at a 5% interest rate. A trader notices Firm L is being valued at $1,100,000. If an investor owns 10% of Firm L's equity, they can prove the valuation is inefficient by switching to Firm U using 'homemade leverage' (borrowing 10% of Firm L's debt amount). How much additional annual income in dollars is earned by the investor through this switch?",
+    "answer": "1000"
+  },
+  {
+    "prompt": "Let $S = \\{1, 2, \\dots, 16\\}$. Two subsets $A$ and $B$ of $S$ are chosen independently and uniformly at random from the power set $\\mathcal{P}(S)$. Let $C = A \\Delta B$ denote the symmetric difference of $A$ and $B$. Calculate the expected value of the product of the cardinalities of the intersection and the symmetric difference, denoted $E[|A \\cap B| \\cdot |C|]$.",
+    "answer": "30"
+  },
+  {
+    "prompt": "Let $S = \\{1, 2, 3, 4, 5\\}$. Two subsets $A, B \\subseteq S$ are chosen independently and uniformly at random. Let $\\mathcal{F}$ be the collection of all subsets $C$ such that $C \\subseteq A$ and $C \\subseteq B$. Find the expected value of the number of elements in the collection $\\mathcal{F}$.",
+    "answer": "3125/1024"
+  },
+  {
+    "prompt": "A permutation $\\sigma$ of the set $S = \\{1, 2, \\dots, 10\\}$ is chosen uniformly at random from the symmetric group $S_{10}$. A subset $A \\subseteq S$ is called invariant if $\\sigma(x) \\in A$ for every $x \\in A$. Find the expected number of invariant subsets of $S$.",
+    "answer": "11"
+  },
+  {
+    "prompt": "Let $S = \\{1, 2, 3, 4\\}$. A sequence of subsets $A_0, A_1, A_2, A_3, A_4$ is generated such that $A_0 = \\emptyset$, and for each $1 \\le i \\le 4$, $A_i$ is formed by choosing an element $x \\in S$ uniformly at random and setting $A_i = A_{i-1} \\Delta \\{x\\}$, where $\\Delta$ denotes the symmetric difference. Find the expected value of the cardinality $|A_4|$.",
+    "answer": "15/8"
+  },
+  {
+    "prompt": "Let $S = \\{1, 2, \\dots, 20\\}$. Let $\\mathcal{X}$ be the collection of all subsets of $S$ that contain exactly 10 elements. Two sets $A$ and $B$ are chosen independently and uniformly at random from $\\mathcal{X}$. Let $k = |A \\cap B|$ be the size of their intersection. Find the expected value of $k^2$.",
+    "answer": "500/19"
+  },
+  {
+    "prompt": "A bag contains ten balls uniquely numbered 1 through 10. Four students, A, B, C, and D, each pick a distinct ball from the bag. A says: 'The sum of our four numbers is 15.' B says: 'The product of our four numbers is 120.' C says: 'All four of our numbers are prime.' D says: 'Exactly two of the four of us are telling the truth.' If it is known that exactly one of A, B, or C is telling the truth, and D's truthfulness is determined solely by the statements of the others, how many possible sets of four balls could the students have picked?",
+    "answer": "12"
+  },
+  {
+    "prompt": "In a 3x3 grid, each cell is occupied by either a Knight, who always tells the truth, or a Liar, who always lies. Each of the 9 inhabitants makes the same statement: 'The number of Liars in my row is strictly greater than the number of Liars in my column.' How many distinct configurations of Knights and Liars are possible in this grid?",
+    "answer": "1"
+  },
+  {
+    "prompt": "Four cubes are arranged in a row, and each is colored either Red, Green, or Blue. Three observers make the following statements: (1) 'The set of cubes contains at least one of each of the three colors.' (2) 'No two adjacent cubes have the same color.' (3) 'The first and fourth cubes in the row have the same color.' If exactly two of these three statements are true, how many distinct colorings of the four cubes are possible?",
+    "answer": "12"
+  },
+  {
+    "prompt": "Seven people are seated in a circle. Each person is either a Knight (always tells the truth) or a Liar (always lies). Every person in the circle makes the exact same statement: 'Both of my immediate neighbors are Liars.' How many distinct arrangements of Knights and Liars are consistent with these statements?",
+    "answer": "7"
+  },
+  {
+    "prompt": "Three people, X, Y, and Z, each draw one card from a deck of ten cards numbered 1 to 10. X says: 'My number is even.' Y says: 'My number is a multiple of 3.' Z says: 'My number is a perfect square.' It is known that: (1) if X is telling the truth, then Y must also be telling the truth; (2) if Y is telling the truth, then Z must be lying; and (3) at least one of the three people is telling the truth. How many different ordered triples (x, y, z) of cards are possible?",
+    "answer": "226"
+  },
+  {
+    "prompt": "A small robot moves between three charging stations: A, B, and C. If it is at station A, it moves to B with probability 0.6 and to C with probability 0.4. If it is at station B, it moves to A with probability 0.5 and to C with probability 0.5. Station C is a terminal maintenance bay where the robot stops. Using a system of linear equations derived from the transition matrix, calculate the expected number of movements the robot makes before reaching station C, assuming it starts at station A.",
+    "answer": "16/7"
+  },
+  {
+    "prompt": "Let X be a random vector in R^2 representing the coordinates of a target, with an expected value vector E[X] = [4, -2]^T. A linear transformation is applied to the target's position defined by the matrix M = [[2, 3], [1, 5]]. After the transformation, a constant displacement vector b = [-3, 7]^T is added to the result to get the new position vector Y. Calculate the sum of the components of the expected value vector E[Y].",
+    "answer": "11"
+  },
+  {
+    "prompt": "In a communication network with four nodes (1, 2, 3, 4), a data packet transitions between nodes according to a doubly stochastic matrix P where P_ij = 1/3 for all i != j and P_ii = 0. If the packet starts at node 1, let T be the number of steps until the packet first returns to node 1. Based on the properties of the steady-state vector in Markov chains, what is the expected value E[T]?",
+    "answer": "4"
+  },
+  {
+    "prompt": "Three players, Alice, Bob, and Charlie, pass a ball. Alice passes to Bob with probability 0.7 and to Charlie with probability 0.3. Bob passes to Alice with probability 0.4 and to Charlie with probability 0.6. Charlie always passes the ball back to Alice. Let E_A, E_B, and E_C represent the expected number of additional passes required to reach Charlie for the first time, starting from Alice, Bob, and Charlie respectively. By setting up a linear system of expectations, find the value of E_A.",
+    "answer": "85/36"
+  },
+  {
+    "prompt": "A population of organisms is modeled by the vector v_t = [J_t, A_t]^T, where J is juveniles and A is adults. The growth is defined by v_{t+1} = M v_t, where M = [[0, 0.8], [0.5, 0.6]]. An environmental shock occurs at t=1 with probability 0.2, which reduces the entire population by 50% (multiplying the vector by 0.5); otherwise, the population follows M exactly. If v_0 = [200, 100]^T, calculate the expected total population (the sum of juveniles and adults) at t=1.",
+    "answer": "216"
+  },
+  {
+    "prompt": "A recursive treasure chest initially contains 1 gold coin and 1 silver coin. You draw one coin at random. If it is gold, you win $100 and the game ends. If it is silver, you return the silver coin to the chest, add an additional silver coin, and draw again. You are permitted a maximum of 3 draws. If the third draw is also silver, you win nothing. What is the expected value of this game?",
+    "answer": "75"
+  },
+  {
+    "prompt": "Two generals compete for three territories worth 30, 60, and 90 points respectively. General B always allocates 20 soldiers to the first territory, 30 to the second, and 50 to the third. General A has 100 soldiers and decides on a strategy of randomly choosing one territory to leave entirely undefended (0 soldiers) and splitting the 100 soldiers equally (50 each) between the remaining two. If the general with more soldiers in a territory wins its points, and ties result in the points being split equally, what is the expected total score for General A?",
+    "answer": "90"
+  },
+  {
+    "prompt": "You are betting on a biased coin that lands Heads 60% of the time. If you predict the outcome correctly, you win $10; if you are wrong, you lose $10. Before the flip, you may choose to pay a non-refundable $2 'insurance fee.' If you pay this fee and your prediction is wrong, you lose nothing further (your total loss is just the $2 fee). If you pay the fee and are correct, you still win the $10 prize (minus the $2 fee). Assuming you follow the optimal strategy of predicting the most likely outcome, what is your expected value per flip?",
+    "answer": "4"
+  },
+  {
+    "prompt": "In a variation of the Monty Hall problem, there are 4 doors: one contains a $300 prize and three are empty. After you pick a door, the host (who knows where the prize is) opens one empty door from the remaining three. You are then offered three choices: 1) Stay with your original door. 2) Switch to one of the two other unopened doors for free. 3) Pay a $20 fee to 'Split' your bet, which allows you to claim the contents of both remaining unopened doors (excluding your original pick), but the prize value within those doors is reduced by 20% to $240. What is the maximum expected value you can achieve?",
+    "answer": "160"
+  },
+  {
+    "prompt": "An asset is worth either $0 or $100 with equal probability. You have the option to buy a 'hint' for X dollars. The hint is 80% accurate: if the asset is worth $100, the hint says 'High' with 80% probability; if it is worth $0, the hint says 'Low' with 80% probability. After seeing the hint, you decide whether to purchase the asset for a fixed price of $50. What is the maximum integer value of X you can pay for the hint such that your total expected profit (after the hint cost and asset purchase) is at least $5?",
+    "answer": "10"
+  },
+  {
+    "prompt": "A laboratory records a series of measurements {102, 105, 98, 110, 101, 104, x}. A data point is statistically defined as an outlier if it lies more than 2.5 standard deviations away from the mean of the other measurements in the set. Given that the sample variance of the first six measurements is exactly 16.8, determine the smallest integer value of x > 110 that would be classified as an outlier.",
+    "answer": "114"
+  },
+  {
+    "prompt": "In a simple linear regression analysis targeting the model y = 2x, a researcher collects the following five data points: (1, 2.1), (2, 3.9), (3, 6.2), (4, 15.5), and (5, 9.8). The researcher defines the 'influential outlier' as the point whose removal causes the greatest decrease in the Mean Squared Error (MSE) calculated relative to the theoretical line y = 2x. Identify the coordinate pair of this outlier.",
+    "answer": "(4, 15.5)"
+  },
+  {
+    "prompt": "An automated sensor draws 100 independent samples from a population following a Normal distribution N(50, 4). An observation is flagged as a 'potential outlier' if it falls outside the interval [45, 55]. Using the exact binomial distribution calculation, what is the probability that a batch of 100 samples contains exactly 3 flagged observations? (Round your answer to four decimal places).",
+    "answer": "0.0922"
+  },
+  {
+    "prompt": "Consider the dataset S = {10, 12, 13, 15, 16, 100, 11}. To identify outliers robustly against extreme values, the modified Z-score is utilized: M = 0.6745 * (x - median) / MAD, where MAD is the Median Absolute Deviation. If the threshold for identifying an outlier is |M| > 3.5, which specific value in the set S is identified as the outlier?",
+    "answer": "100"
+  },
+  {
+    "prompt": "A signal processing system receives data from a mixture model where 95% of observations come from a 'Normal' source N(0, 1) and 5% come from a 'Noise' source N(0, 25). A Bayesian classifier labels an observation x as 'Noise' (an outlier) if the posterior probability P(Noise|x) is greater than or equal to 0.5, assuming the prior probabilities are equal to the mixing proportions. Calculate the minimum positive value of x, to three decimal places, that would be classified as Noise.",
+    "answer": "3.080"
+  },
+  {
+    "prompt": "An investment account starts with P dollars and earns an annual effective interest rate i. At the end of each year k for k=1, 2, ..., 10, the interest earned during that year plus an additional 100k dollars is withdrawn from the account. After the 10th withdrawal, the account balance is exactly zero. If the total amount withdrawn over the 10 years is 11,000, find P.",
+    "answer": "5500"
+  },
+  {
+    "prompt": "For a certain annual effective interest rate i and positive integer n, the present value of an n-year annuity-immediate paying $100 annually is $500. The present value of a 2n-year annuity-immediate paying $100 annually for the first n years and $400 annually for the second n years is $1500. Find the present value of a single payment of $1000 due in 2n years.",
+    "answer": "250"
+  },
+  {
+    "prompt": "A loan of L is repaid with 3 equal annual payments of $1331. The principal portion of the first payment is $1000. Find L.",
+    "answer": "3310"
+  },
+  {
+    "prompt": "A loan is repaid with 20 equal annual payments. The interest portion of the 16th payment is 400 and the interest portion of the 11th payment is 600. Find the interest portion of the 1st payment.",
+    "answer": "750"
+  },
+  {
+    "prompt": "Perpetuity A pays $100 at the end of year 1, with each subsequent payment increasing by a constant growth rate g. Perpetuity B pays $100 at the end of year 1, with each subsequent payment decreasing by the same rate g. At an annual effective interest rate of i = 10%, the sum of the present values of Perpetuity A and Perpetuity B is 3125. Find g.",
+    "answer": "0.06"
+  },
+  {
+    "prompt": "A treasure hunter invests a sum of P gold coins in a magical vault that increases the count by 10% every year, compounded annually. After exactly 2 years, the total number of coins in the vault becomes a perfect cube. If P must be a positive integer and the total number of coins after 2 years is also an integer, what is the smallest possible value of P?",
+    "answer": "1100"
+  },
+  {
+    "prompt": "A principal amount P, which is the smallest four-digit prime number, is invested at an annual interest rate of r%, where r is a positive integer. The interest is compounded annually. After 2 years, the total accumulated amount A is calculated. If the decimal part of A is exactly zero, and the resulting integer A is divisible by 11, what is the smallest possible value for r?",
+    "answer": "1000"
+  },
+  {
+    "prompt": "A sum of 6000 units is invested at an annual interest rate of 30% compounded annually. Let n be the number of years required for the total amount A to be an integer that possesses exactly four distinct prime factors, where one of those factors is 13. Find the smallest such positive integer n.",
+    "answer": "1"
+  },
+  {
+    "prompt": "An amount P is invested at a 25% annual interest rate, compounded annually. After 2 years, the total amount A is an integer. If A is the smallest integer greater than 1 such that the sum of all its divisors (sigma function) is a prime number, what is the value of P?",
+    "answer": "16"
+  },
+  {
+    "prompt": "An investor puts P dollars into a high-yield account with a 20% annual interest rate, compounded annually. After 2 years, the total balance A is an integer. If P is the smallest possible positive integer such that Euler's totient function phi(A) = 24, find the value of P.",
+    "answer": "50"
+  }
+]
