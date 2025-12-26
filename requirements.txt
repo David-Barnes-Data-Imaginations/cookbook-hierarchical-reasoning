@@ -3,3 +3,14 @@ google-auth
 tqdm
 vertexai
 google-genai>=1.51.0
+torch
+torchvision
+torchtext
+bitsandbytes 
+datasets 
+tensorboard 
+dotenv
+unsloth
+lm-eval
+lm-eval[math,ifeval,sentencepiece,zeno]
+
