@@ -12,3 +12,5 @@ unsloth_compiled_cache/
 
 # Training outputs
 gemma-3-reasoning-output/
+llama-1b-reasoning-*/
+*.safetensors
