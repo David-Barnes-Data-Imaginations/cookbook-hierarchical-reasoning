@@ -13,6 +13,9 @@ ssh -o ServerAliveInterval=60 -o ServerAliveCountMax=10 -i ~/.ssh/id_ed25519 -L 
 # then:
 /home/user/miniconda/bin/jupyter lab --port 8888 --no-browser --ip=0.0.0.0 --NotebookApp.token='huggingface'
 
+# or one liner
+pip install jupyterlab notebook ipykernel torch transformers datasets trl peft accelerate bitsandbytes unsloth && jupyter lab --port 8888 --no-browser --ip=0.0.0.0 --ServerApp.token='huggingface'
+
 # finally, open in browser:
 http://localhost:8888/lab?token=huggingface
 
