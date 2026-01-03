@@ -13,4 +13,6 @@ dotenv
 unsloth
 lm-eval
 lm-eval[math,ifeval,sentencepiece,zeno]
-
+sentence-transformers
+scikit-learn
+numpy
