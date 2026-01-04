@@ -108,11 +108,20 @@ else:
 
         def generate_text_gemini(prompt):
             try:
-                # Vertex AI SDK doesn't always strictly respect client timeouts easily, 
-                # but we can try passing it if the version supports it, else we rely on global default.
-                # Adding a print to track it.
-                response = model.generate_content(prompt)
-                return response.text
+                # Use a thread-based timeout since Vertex AI doesn't have built-in timeout
+                import concurrent.futures
+                
+                def _call_api():
+                    return model.generate_content(prompt)
+                
+                with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                    future = executor.submit(_call_api)
+                    try:
+                        response = future.result(timeout=120)  # 2 minute timeout
+                        return response.text
+                    except concurrent.futures.TimeoutError:
+                        print(f"\n⚠️ Gemini API timed out after 120s, skipping this sample...")
+                        return ""
             except Exception as e:
                 print(f"Gemini Error: {e}")
                 return ""
@@ -295,7 +304,7 @@ for example in tqdm(dataset):
     if DATA_PROVIDER != "ollama":
         time.sleep(30) 
         
-    if count >= 5: # Stop after 200 samples to save API credits
+    if count >= 200: # Stop after 200 samples to save API credits
         break
 
 # Save new offset
