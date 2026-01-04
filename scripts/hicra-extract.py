@@ -340,6 +340,14 @@ for gram in tqdm(unique_grams):
 
 embeddings = np.array(embeddings)
 
+# Save embeddings and gram list for later use
+print("💾 Saving embeddings...")
+np.save("strategic_grams_embeddings.npy", embeddings)
+with open("strategic_grams_list.json", "w") as f:
+    json.dump(unique_grams, f, indent=2)
+print(f"   Saved {len(embeddings)} embeddings to 'strategic_grams_embeddings.npy'")
+print(f"   Saved gram list to 'strategic_grams_list.json'")
+
 print("Isolating Clusters...")
 
 # Guard: Skip clustering if we have no embeddings
@@ -358,9 +366,10 @@ if len(unique_grams) < 2:
 
 # Agglomerative Clustering (as per HICRA paper usually) or DBSCAN
 # Distance threshold determines how "strict" synonyms must be
+# Cosine distance ranges 0-2, so 0.15 is stricter than 0.5
 clustering_model = AgglomerativeClustering(
     n_clusters=None, 
-    distance_threshold=0.5, # Tune this: Lower = stricter synonyms
+    distance_threshold=0.15, # Lower = more clusters, stricter synonyms
     metric='cosine', 
     linkage='average'
 )
