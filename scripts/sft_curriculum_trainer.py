@@ -447,38 +447,44 @@ def run_sft_training(dataset, stage: int, max_seq_length: int):
     print(f"   Training examples: {len(dataset)}")
     print(f"   Output directory: {output_dir}")
     
-    # Load model
-    print("\n⏳ Loading Qwen3-14B Base...")
-    model, tokenizer = FastLanguageModel.from_pretrained(
-        model_name="unsloth/Qwen3-14B-Base-bnb-4bit",
-        max_seq_length=max_seq_length,
-        load_in_4bit=True,
-        fast_inference=False,
-    )
-    
-    # For Stage 2, try to load Stage 1 checkpoint as starting point
+    # Load model - different approach for Stage 1 vs Stage 2
     if stage == 2:
+        # Stage 2: Load Stage 1 checkpoint directly and continue training those adapters
         stage_1_checkpoint = "qwen3-14b-sft-stage1"
         if os.path.exists(stage_1_checkpoint):
-            print(f"📂 Loading Stage 1 checkpoint from {stage_1_checkpoint}...")
-            from peft import PeftModel
-            model = PeftModel.from_pretrained(model, stage_1_checkpoint)
-            model = model.merge_and_unload()
-            print("   ✅ Merged Stage 1 adapters")
-    
-    # Attach LoRA
-    print("🔗 Attaching LoRA adapters...")
-    model = FastLanguageModel.get_peft_model(
-        model,
-        r=LORA_RANK,
-        target_modules=[
-            "q_proj", "k_proj", "v_proj", "o_proj",
-            "gate_proj", "up_proj", "down_proj",
-        ],
-        lora_alpha=LORA_ALPHA,
-        use_gradient_checkpointing="unsloth",
-        random_state=3407,
-    )
+            print(f"\n⏳ Loading Stage 1 checkpoint from {stage_1_checkpoint}...")
+            model, tokenizer = FastLanguageModel.from_pretrained(
+                model_name=stage_1_checkpoint,  # Load the checkpoint directly
+                max_seq_length=max_seq_length,
+                load_in_4bit=True,
+                fast_inference=False,
+            )
+            print("   ✅ Loaded Stage 1 adapters (will continue training)")
+        else:
+            raise FileNotFoundError(f"Stage 1 checkpoint not found at {stage_1_checkpoint}. Run Stage 1 first!")
+    else:
+        # Stage 1: Load base model and attach new LoRA adapters
+        print("\n⏳ Loading Qwen3-14B Base...")
+        model, tokenizer = FastLanguageModel.from_pretrained(
+            model_name="unsloth/Qwen3-14B-Base-bnb-4bit",
+            max_seq_length=max_seq_length,
+            load_in_4bit=True,
+            fast_inference=False,
+        )
+        
+        # Attach LoRA (only for Stage 1 - Stage 2 already has them)
+        print("🔗 Attaching LoRA adapters...")
+        model = FastLanguageModel.get_peft_model(
+            model,
+            r=LORA_RANK,
+            target_modules=[
+                "q_proj", "k_proj", "v_proj", "o_proj",
+                "gate_proj", "up_proj", "down_proj",
+            ],
+            lora_alpha=LORA_ALPHA,
+            use_gradient_checkpointing="unsloth",
+            random_state=3407,
+        )
     
     # Set Qwen3 chat template on tokenizer (base model doesn't have one)
     # This is the standard ChatML format used by Qwen3
