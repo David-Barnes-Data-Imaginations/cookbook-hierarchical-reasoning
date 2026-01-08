@@ -1,1 +1,82 @@
 
+
+
+💾 Saving embeddings...
+   Saved 9026 embeddings to 'strategic_grams_embeddings.npy'
+   Saved gram list to 'strategic_grams_list.json'
+Isolating Clusters...
+📊 Clustering stats:
+   - Total clusters: 327
+   - Clusters with scores: 327
+   - Top 5 cluster scores: [7018, 438, 276, 272, 231]
+
+🏆 Top 65 Strategic Clusters Identified:
+
+Cluster 0 (Score 7018): but in a | Variations: ["which it shouldn't be", "but it doesn't have", 'it must satisfy the']
+Cluster 26 (Score 438): i need to | Variations: ['i need to minimize', 'i need to include', 'need to find the']
+Cluster 3 (Score 276): the tower to | Variations: ['the simplified form should', 'the other root must be', 'the common boundary is not']
+Cluster 36 (Score 272): as we saw | Variations: ['so we need to', 'where we want a', 'matches what i just']
+Cluster 68 (Score 231): in any case | Variations: ['for each case', 'with a simple case', 'in any case']
+Cluster 100 (Score 220): and so on | Variations: ['and there is no', 'and maximized when at', 'and the equation becomes']
+Cluster 141 (Score 174): i recall that | Variations: ['i recall that sometimes for', 'it reminds me of', 'now, recall that in the']
+Cluster 7 (Score 146): there is a | Variations: ['is there a way to', 'is there a way', 'is there any other solution']
+Cluster 24 (Score 145): if d is not | Variations: ['so this pair does not', "i don't know if", "it doesn't mention anything about"]
+Cluster 13 (Score 128): now sum all | Variations: ['now, after applying', 'now, what about when', 'now, but in this']
+Cluster 62 (Score 125): to make it | Variations: ['to make this easier', 'to make it cleaner', 'similarly, to make it']
+Cluster 20 (Score 106): is only for | Variations: ['is really the only one', 'answer and only', "but that's only for"]
+Cluster 129 (Score 96): i can compute it | Variations: ['i can compute directly', 'but anyway, our calculation', 'confirm the calculation']
+Cluster 152 (Score 92): is that it | Variations: ['so it satisfies', 'as above, it works', 'so it fails immediately']
+Cluster 48 (Score 90): set the equation | Variations: ['they satisfy the quadratic equation', 'solve for in terms of', 'other equation, but in']
+Cluster 286 (Score 89): the same as | Variations: ['so it is the same', 'exactly the same as', 'not the same as']
+Cluster 6 (Score 81): now look at | Variations: ['looks complicated with the', 'but this looks messy', 'first, i look at']
+Cluster 134 (Score 81): if i set | Variations: ['and then set', 'disjoint subsets have the', 'for a set of numbers']
+Cluster 150 (Score 71): as long as | Variations: ['holds as long as', 'first the large ones', 'as long as possible']
+Cluster 37 (Score 69): is symmetric in a | Variations: ['sum is symmetric, so', 'is symmetric in a', 'since the moduli are']
+Cluster 31 (Score 65): now is this a | Variations: ['now, is this correct', 'now, is this the', 'now, is there a']
+Cluster 222 (Score 60): is defined on | Variations: ['i could define a', 'defined by the', "so, let's define the"]
+Cluster 214 (Score 51): simpler as i did | Variations: ['similarly, for the other', 'similarly, fourth pair', 'similarly for others']
+Cluster 4 (Score 50): so, from above | Variations: ['i assumed that from', 'from the two equations', 'from left to right']
+Cluster 39 (Score 48): is positive so | Variations: ['which is positive if', 'is always positive', 'yes, because positive']
+Cluster 318 (Score 47): so it's fine | Variations: ["so that's fine", "but i think that's fine", 'integer is fine']
+Cluster 87 (Score 46): so for any | Variations: ['that is, for each', 'specifically, for a given', 'meaning that for each']
+Cluster 321 (Score 44): if i know | Variations: ['i know that in', 'if i know', 'i also know']
+Cluster 33 (Score 44): so at point | Variations: ['could there be points', 'find critical points', 'i think the key']
+Cluster 65 (Score 44): it checks out | Variations: ['i should double-check that', 'so everything checks out', 'i should check']
+Cluster 130 (Score 42): one is negative | Variations: ['is always negative for', 'which is always non-negative', 'changes from negative to']
+Cluster 78 (Score 40): with a small | Variations: ['smallest possible is', 'are small on average, and', 'too small, and probably']
+Cluster 2 (Score 40): now, since the | Variations: ['is associated, but since', 'now, since the', 'either, because they are']
+Cluster 66 (Score 40): hold for all | Variations: ['since this holds for', 'but this must hold', 'this holds for all']
+Cluster 123 (Score 37): if i take a | Variations: ['take both sides to', 'if i take closer', 'so i should take']
+Cluster 151 (Score 36): set up a | Variations: ['set equal to left', 'let its coordinates be', 'set equal to left side']
+Cluster 23 (Score 33): is a function of | Variations: ["and it's a function of", 'consider the function', 'since the function']
+Cluster 148 (Score 32): so max is | Variations: ['the max agreement over pairs', 'left and right limits', 'because max of']
+Cluster 35 (Score 32): for all real | Variations: ['for real solutions only', 'and real solutions exist', 'for real roots']
+Cluster 98 (Score 31): i am considering | Variations: ['we need to consider', 'be found by considering', 'by considering an']
+Cluster 14 (Score 31): for the pair | Variations: ['so each pair contributes', 'for the pairs that differ,', 'number of agreeing pairs:']
+Cluster 74 (Score 31): is better if | Variations: ['better to keep it', 'is there a better', 'sorted is better']
+Cluster 75 (Score 28): so ratio is | Variations: ['if this fraction is', "since it's a ratio", 'the ratio of areas']
+Cluster 144 (Score 28): find a pattern | Variations: ['perhaps the sequence starts', 'terms of the sequence', 'now, from the recurrence']
+Cluster 9 (Score 27): i'm given the | Variations: ["i'm getting confused", 'i think i confused myself', "i'm confusing myself"]
+Cluster 1 (Score 27): in first set | Variations: ['take the first set', 'for the first', 'because either the first']
+Cluster 29 (Score 27): must be a perfect | Variations: ['to complete the square', 'because the square root', 'under the square roots']
+Cluster 8 (Score 27): is zero when | Variations: ['which is not zero unless', 'to center at zero', 'is not identically zero']
+Cluster 51 (Score 26): to be safe | Variations: ['to be safe, i should', "i think it's safe", 'to be safe i']
+Cluster 70 (Score 25): as is standard | Variations: ['in standard interpretation', 'this is a standard theorem', 'a standard way is to']
+Cluster 88 (Score 25): so no choice | Variations: ['we need to choose', 'so no choice', 'equivalent to choosing any']
+Cluster 41 (Score 25): be related to | Variations: ['are related by', "maybe there's a relationship", 'because no relation is']
+Cluster 11 (Score 25): this is a bit | Variations: ['this is the answer', 'and this is independent of', 'this is just a']
+Cluster 274 (Score 23): in fact it's | Variations: ['in fact, comparing, we', "in fact it's", 'in fact, for any']
+Cluster 49 (Score 22): i'll do that | Variations: ["i'll do that", "i'll break it down", "i'll start by trying"]
+Cluster 143 (Score 22): to one side | Variations: ['we have one distinct', 'unbounded in one direction', 'one of them might']
+Cluster 83 (Score 22): made a mistake | Variations: ['might have made a', 'i made a mistake', 'is a mistake and']
+Cluster 85 (Score 21): now back to | Variations: ['now, back to the', 'now back to our', 'now back to']
+Cluster 192 (Score 21): that's not right | Variations: ['my assumption must be wrong', "can't be right because", "i think it's correct"]
+Cluster 276 (Score 21): i'll go with | Variations: ["so, i'll go with that", "so i'll go with that.", "i'll go with that"]
+Cluster 110 (Score 20): i think that's it | Variations: ["i think that's solid", "i think it's inevitable", "i think that's acceptable"]
+Cluster 15 (Score 20): so yes, i can | Variations: ['now, i can factor', 'now, let me perform', 'so yes, i can solve']
+Cluster 159 (Score 18): of the form | Variations: ['be formed by the', 'particular form for', 'together they form a']
+Cluster 79 (Score 18): to compare the | Variations: ['might be slightly neater', 'so the difference is', 'to compare the']
+Cluster 140 (Score 18): their product is | Variations: ['product of the roots is', 'now, in the product', "since it's a product"]
+💾 Appending to strategic_grams_nemotron.txt...
+
+✅ Done! Appended new grams to 'strategic_grams_nemotron.txt'.

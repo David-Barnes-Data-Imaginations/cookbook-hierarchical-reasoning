@@ -1,0 +1,54 @@
+[
+  {
+    "prompt": "A basketball player makes 3 out of every 5 free throws. If she attempts 25 free throws in a game, how many would you expect her to make?",
+    "answer": "15"
+  },
+  {
+    "prompt": "The sum of three consecutive integers is 72. What is the largest of these three integers?",
+    "answer": "25"
+  },
+  {
+    "prompt": "A movie theater sells adult tickets for $12 and child tickets for $8. If they sold 150 tickets total and collected $1,520, how many adult tickets were sold?",
+    "answer": "68"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet more than twice its width. If the perimeter is 54 feet, what is the width of the garden?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "Sarah has twice as many apples as oranges. She has 5 more bananas than oranges. If she has 23 pieces of fruit in total, how many oranges does she have?",
+    "answer": "4.5 oranges"
+  },
+  {
+    "prompt": "A car rental company charges $25 per day plus $0.15 per mile driven. If someone's bill was $67 for a one-day rental, how many miles did they drive?",
+    "answer": "280 miles"
+  },
+  {
+    "prompt": "In a class of 30 students, the ratio of boys to girls is 3:2. During lunch, 4 boys and 2 girls are absent. What is the ratio of boys to girls present during lunch?",
+    "answer": "7:5"
+  },
+  {
+    "prompt": "A ladder leans against a wall. The bottom of the ladder is 8 feet from the wall, and the ladder reaches 15 feet up the wall. What is the length of the ladder?",
+    "answer": "17 feet"
+  },
+  {
+    "prompt": "A pizza is cut into 8 equal slices. If Sarah eats 3 slices and Mike eats 2 slices, what fraction of the pizza remains?",
+    "answer": "3/8"
+  },
+  {
+    "prompt": "The sum of three consecutive integers is 48. What is the largest of these three integers?",
+    "answer": "17"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 4 feet longer than its width. If the perimeter is 32 feet, what is the area of the garden in square feet?",
+    "answer": "60 square feet"
+  },
+  {
+    "prompt": "In a class of 25 students, 15 play basketball, 12 play soccer, and 8 play both sports. How many students play neither basketball nor soccer?",
+    "answer": "6 students"
+  },
+  {
+    "prompt": "A store offers a 20% discount on a jacket originally priced at $80. If sales tax is 8% on the discounted price, what is the final amount a customer pays?",
+    "answer": "$69.12"
+  }
+]

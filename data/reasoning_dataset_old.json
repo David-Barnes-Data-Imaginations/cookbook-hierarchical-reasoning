@@ -1,0 +1,1350 @@
+[
+  {
+    "prompt": "The sum of two numbers is 45. One number is 3 more than twice the other. What is the smaller number?",
+    "answer": "14"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 60 meters. Its length is twice its width. What is the area of the garden in square meters?",
+    "answer": "200"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If you pick two marbles randomly without replacement, what is the probability that both marbles are blue? Express your answer as a simplified fraction.",
+    "answer": "1/15"
+  },
+  {
+    "prompt": "Sarah can paint a room in 4 hours. John can paint the same room in 6 hours. If they work together, how many hours will it take them to paint the room?",
+    "answer": "2.4"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 5, 10, 17, __?",
+    "answer": "26"
+  },
+  {
+    "prompt": "A plumber charges a flat fee of $75 for a service call plus $50 per hour for labor. If a customer's total bill was $275, how many hours did the plumber work?",
+    "answer": "4 hours"
+  },
+  {
+    "prompt": "A rectangular garden measures 15 meters by 20 meters. If a 2-meter wide path is built around the *outside* of the garden, what is the area of the path?",
+    "answer": "184 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If two marbles are drawn from the bag without replacement, what is the probability that both marbles drawn are red?",
+    "answer": "2/9"
+  },
+  {
+    "prompt": "The average of four numbers is 30. If one of the numbers is removed, the average of the remaining three numbers becomes 25. What was the value of the removed number?",
+    "answer": "45"
+  },
+  {
+    "prompt": "Machine A can produce 100 widgets in 5 hours. Machine B can produce 100 widgets in 4 hours. If both machines work together, how long will it take them to produce 100 widgets?",
+    "answer": "20/9 hours"
+  },
+  {
+    "prompt": "Pipe A can fill a swimming pool in 4 hours, and Pipe B can fill the same pool in 6 hours. If both pipes are opened simultaneously, how many hours will it take to fill the entire pool?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "A rectangular garden measures 15 meters in length and 10 meters in width. A uniform path of 2 meters wide is built around the entire garden. What is the area of the path in square meters?",
+    "answer": "116 square meters"
+  },
+  {
+    "prompt": "From a group of 5 boys and 4 girls, a committee of 3 students is to be formed. How many different committees can be formed if the committee must consist of exactly 2 boys and 1 girl?",
+    "answer": "40"
+  },
+  {
+    "prompt": "What is the 10th term in the arithmetic sequence: 3, 7, 11, 15, ...?",
+    "answer": "39"
+  },
+  {
+    "prompt": "A smartphone is originally priced at $600. It is on sale for 25% off. If a 7% sales tax is applied to the discounted price, what is the final cost of the smartphone?",
+    "answer": "$481.50"
+  },
+  {
+    "prompt": "Sarah is three times as old as her brother, David. In 5 years, Sarah will be twice as old as David. How old is David now?",
+    "answer": "5 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 48 meters. Its length is 4 meters more than its width. What is the area of the garden?",
+    "answer": "140 square meters"
+  },
+  {
+    "prompt": "A bag contains 6 red marbles, 4 blue marbles, and 2 green marbles. If a marble is chosen at random, what is the probability that it is not blue?",
+    "answer": "2/3"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 6, 12, 20, 30, ...?",
+    "answer": "42"
+  },
+  {
+    "prompt": "John can paint a fence in 6 hours. His younger brother, Mike, can paint the same fence in 9 hours. If they work together, how long will it take them to paint the fence?",
+    "answer": "3.6 hours"
+  },
+  {
+    "prompt": "A farmer has chickens and pigs. He counts a total of 30 heads and 84 legs. How many chickens does the farmer have?",
+    "answer": "18"
+  },
+  {
+    "prompt": "A rectangular prism has a length of 5 cm, a width of 3 cm, and a height of 8 cm. What is its volume in cubic centimeters?",
+    "answer": "120 cm\u00b3"
+  },
+  {
+    "prompt": "A bag contains 4 red marbles, 6 blue marbles, and 2 green marbles. If you pick one marble at random, what is the probability that it is blue? Express your answer as a simplified fraction.",
+    "answer": "1/2"
+  },
+  {
+    "prompt": "It takes John 4 hours to paint a fence alone, and it takes Mary 6 hours to paint the same fence alone. If they work together, how many hours will it take them to paint the fence?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "Sarah bought a dress for $80. She later sold it for 25% more than she paid for it. What was the selling price of the dress?",
+    "answer": "$100"
+  },
+  {
+    "prompt": "John can paint a fence in 6 hours. Mary can paint the same fence in 4 hours. If they work together, how long will it take them to paint the fence?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "A rectangular garden is 20 meters long and 15 meters wide. A circular fountain with a radius of 3 meters is built in the center. What is the area of the garden remaining for planting, to the nearest square meter? (Use pi = 3.14)",
+    "answer": "272 square meters"
+  },
+  {
+    "prompt": "A school club has 10 members. They need to select a president, a vice-president, and a secretary. How many different ways can these three positions be filled if no member can hold more than one position?",
+    "answer": "720 ways"
+  },
+  {
+    "prompt": "The sum of three consecutive even integers is 96. What is the largest of these integers?",
+    "answer": "34"
+  },
+  {
+    "prompt": "Sarah invests $5000 in an account that earns 3% interest compounded annually. How much money will she have in the account after 5 years, to the nearest cent?",
+    "answer": "$5796.37"
+  },
+  {
+    "prompt": "Sarah is 3 years older than Tom. In 5 years, the sum of their ages will be 35. How old is Tom currently?",
+    "answer": "11 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 15 meters, what is the area of the garden?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "A standard deck of 52 playing cards is shuffled. What is the probability of drawing a red face card (King, Queen, Jack)?",
+    "answer": "3/26"
+  },
+  {
+    "prompt": "Pipe A can fill a tank in 6 hours. Pipe B can fill the same tank in 3 hours. If both pipes are opened together, how long will it take to fill the tank?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 5, 10, 17, 26, ?",
+    "answer": "37"
+  },
+  {
+    "prompt": "Sarah bought 3 notebooks and 2 pens for $12. Mark bought 2 notebooks and 5 pens from the same store for $14. What is the cost of one notebook?",
+    "answer": "$3.00"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 15 meters, what is the area of the garden in square meters?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "A bag contains 4 red marbles, 6 blue marbles, and 5 green marbles. If one marble is randomly selected, what is the probability that it is blue? Express your answer as a simplified fraction.",
+    "answer": "2/5"
+  },
+  {
+    "prompt": "John can paint a fence in 6 hours. Mike can paint the same fence in 9 hours. If they work together, how many hours will it take them to paint the fence?",
+    "answer": "3.6 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 5, 10, 17, 26, ...?",
+    "answer": "37"
+  },
+  {
+    "prompt": "A theater sells tickets for $12 for adults and $8 for children. If a total of 300 tickets were sold and the total revenue was $3200, how many adult tickets were sold?",
+    "answer": "200"
+  },
+  {
+    "prompt": "A cylindrical water tank has a radius of 2 meters and a height of 5 meters. If it is filled to 80% of its capacity, what volume of water, in cubic meters, does it contain? Use pi = 3.14.",
+    "answer": "50.24 cubic meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If two marbles are drawn from the bag consecutively without replacement, what is the probability that both marbles drawn are red?",
+    "answer": "2/9"
+  },
+  {
+    "prompt": "If 5 workers can build 5 identical walls in 5 days, how many days will it take 10 workers to build 10 identical walls, assuming they work at the same constant rate?",
+    "answer": "5 days"
+  },
+  {
+    "prompt": "Sarah invested $5000 in an account that earns 4% annual interest compounded annually. How much money, to the nearest cent, will she have in the account after 3 years?",
+    "answer": "$5624.32"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 48 meters. Its length is 4 meters more than its width. What is the area of the garden?",
+    "answer": "140 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If you pick one marble at random, what is the probability that it is not blue?",
+    "answer": "7/10"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 6, 12, 20, 30, ___?",
+    "answer": "42"
+  },
+  {
+    "prompt": "A cylindrical water tank has a radius of 2 meters and a height of 5 meters. What is the approximate volume of the tank in cubic meters? (Use \u03c0 \u2248 3.14)",
+    "answer": "62.8 cubic meters"
+  },
+  {
+    "prompt": "It takes John 3 hours to paint a fence alone, and it takes Mary 6 hours to paint the same fence alone. If they work together, how long will it take them to paint the fence?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 48 meters. If the length is twice its width, what is the length of the garden?",
+    "answer": "16 meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If two marbles are drawn at random without replacement, what is the probability that both marbles are red?",
+    "answer": "2/9"
+  },
+  {
+    "prompt": "A circular swimming pool has a diameter of 10 meters. A concrete path 1 meter wide is built around the pool. What is the area of the concrete path, in square meters, rounded to one decimal place? Use \u03c0 \u2248 3.14.",
+    "answer": "34.5 square meters"
+  },
+  {
+    "prompt": "Emily starts a new job with a starting salary of $40,000. She is promised a 5% raise each year. What will her salary be in her fourth year?",
+    "answer": "$46,305"
+  },
+  {
+    "prompt": "Pipe A can fill a tank in 6 hours. Pipe B can fill the same tank in 8 hours. If both pipes are opened simultaneously, how long will it take to fill the tank, in hours and minutes?",
+    "answer": "3 hours 26 minutes"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 48 meters. Its length is 4 meters more than its width. What is the area of the garden?",
+    "answer": "140 square meters"
+  },
+  {
+    "prompt": "A ladder 15 feet long leans against a wall. If the base of the ladder is 9 feet from the wall, how high up the wall does the ladder reach?",
+    "answer": "12 feet"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If one marble is chosen at random, what is the probability that it is not blue?",
+    "answer": "7/10"
+  },
+  {
+    "prompt": "In how many different ways can the letters of the word 'MATH' be arranged?",
+    "answer": "24 ways"
+  },
+  {
+    "prompt": "Sarah can paint a room in 6 hours. John can paint the same room in 4 hours. How long will it take them to paint the room together?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "A school theater sold 400 tickets for a play. Student tickets cost $5 each and adult tickets cost $8 each. If the total revenue from ticket sales was $2300, how many adult tickets were sold?",
+    "answer": "100"
+  },
+  {
+    "prompt": "A rectangular garden measures 15 meters by 10 meters. A circular fountain with a radius of 3 meters is installed in the center of the garden. What is the area of the garden not covered by the fountain? (Use pi = 3.14)",
+    "answer": "121.74 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If two marbles are drawn from the bag without replacement, what is the probability that both marbles drawn are red?",
+    "answer": "2/9"
+  },
+  {
+    "prompt": "In how many distinct ways can the letters of the word \"MISSISSIPPI\" be arranged?",
+    "answer": "34650"
+  },
+  {
+    "prompt": "John can paint a room in 6 hours. Mary can paint the same room in 4 hours. If they work together, how long will it take them to paint the room?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 60 meters. If the length is twice its width, what is the area of the garden?",
+    "answer": "200 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If you draw two marbles without replacement, what is the probability that both marbles are red?",
+    "answer": "2/9"
+  },
+  {
+    "prompt": "Working alone, Plumber A can clear a drain in 3 hours. Plumber B can clear the same drain in 6 hours. If they work together, how long will it take them to clear the drain?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 6, 12, 20, 30, ___?",
+    "answer": "42"
+  },
+  {
+    "prompt": "A shirt is on sale for 20% off its original price. If the sale price is $24, what was the original price of the shirt?",
+    "answer": "$30"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If the length of the garden is 15 meters, what is its area in square meters?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "A jar contains 8 red marbles, 5 blue marbles, and 7 green marbles. If one marble is chosen at random, what is the probability that it is a blue marble?",
+    "answer": "1/4"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 4, 9, 16, 25, 36, __?",
+    "answer": "49"
+  },
+  {
+    "prompt": "If three workers can complete a task in 8 hours, and two of them work at the same pace, how long would it take two workers to complete the same task?",
+    "answer": "12 hours"
+  },
+  {
+    "prompt": "A store sells two types of coffee: Regular for $8 per pound and Premium for $12 per pound. A customer buys a total of 10 pounds of coffee and pays $100. How many pounds of Premium coffee did the customer buy?",
+    "answer": "5 pounds"
+  },
+  {
+    "prompt": "Sarah is twice as old as Tom. In 5 years, the sum of their ages will be 31. How old is Tom now?",
+    "answer": "7 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 5 meters greater than its width, what is the area of the garden?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "A bag contains 4 red marbles, 5 blue marbles, and 3 green marbles. If one marble is chosen at random, what is the probability that it is a blue marble?",
+    "answer": "5/12"
+  },
+  {
+    "prompt": "Pipe A can fill a tank in 6 hours. Pipe B can fill the same tank in 3 hours. How long will it take to fill the tank if both pipes are open?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "What is the 10th term in the arithmetic sequence: 3, 7, 11, 15, ...?",
+    "answer": "39"
+  },
+  {
+    "prompt": "Sarah is 3 years older than Tom. In 5 years, the sum of their ages will be 35. How old is Tom now?",
+    "answer": "11 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 60 meters. If its length is twice its width, what is the area of the garden?",
+    "answer": "200 square meters"
+  },
+  {
+    "prompt": "A bag contains 4 red marbles, 5 blue marbles, and 3 green marbles. If one marble is drawn at random, what is the probability that it is a blue marble?",
+    "answer": "5/12"
+  },
+  {
+    "prompt": "The sum of three consecutive even integers is 84. What is the smallest of these integers?",
+    "answer": "26"
+  },
+  {
+    "prompt": "It takes 4 hours for 3 identical machines to complete a specific job. How many hours would it take for 2 of these machines to complete the same job?",
+    "answer": "6 hours"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 5 meters more than its width, what is the area of the garden?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "In a class of 28 students, how many different ways can a president, a vice-president, and a secretary be chosen?",
+    "answer": "20,484"
+  },
+  {
+    "prompt": "Pipe A can fill a water tank in 4 hours, and Pipe B can fill the same tank in 6 hours. If both pipes are opened together, how long will it take to fill the tank?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 3, 7, 13, 21, 31, ___?",
+    "answer": "43"
+  },
+  {
+    "prompt": "A 10-foot ladder is leaning against a wall. The base of the ladder is 6 feet away from the wall. How high up the wall does the ladder reach?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 5 meters more than its width, what is the area of the garden in square meters?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "A store offers a 20% discount on all items. If a jacket originally costs $75, and there is a 5% sales tax applied after the discount, what is the final price of the jacket?",
+    "answer": "$63.00"
+  },
+  {
+    "prompt": "Emily can type a 10-page report in 2 hours. Her assistant, Sarah, can type the same report in 3 hours. If they work together, how many minutes will it take them to type a 10-page report?",
+    "answer": "72 minutes"
+  },
+  {
+    "prompt": "In a class of 30 students, 18 students play basketball, 15 students play soccer, and 7 students play both. How many students play neither basketball nor soccer?",
+    "answer": "4 students"
+  },
+  {
+    "prompt": "What is the next term in the arithmetic sequence: 5, 12, 19, 26, ...?",
+    "answer": "33"
+  },
+  {
+    "prompt": "A theater sells adult tickets for $12 and child tickets for $7. On a particular evening, they sold a total of 300 tickets and collected $2800 in revenue. How many adult tickets were sold?",
+    "answer": "140"
+  },
+  {
+    "prompt": "A rectangular swimming pool is 20 meters long and 15 meters wide. It is surrounded by a uniform concrete deck 2 meters wide. What is the area of the concrete deck?",
+    "answer": "156 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If two marbles are drawn from the bag without replacement, what is the probability that both marbles are red?",
+    "answer": "2/9"
+  },
+  {
+    "prompt": "John can paint a room in 4 hours. Mike can paint the same room in 6 hours. If they work together, how long will it take them to paint the room?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "An arithmetic sequence starts with the term 5, and the 7th term is 29. What is the common difference of the sequence?",
+    "answer": "4"
+  },
+  {
+    "prompt": "A chemist needs to make 300 ml of a 15% acid solution. She has a 10% acid solution and a 20% acid solution. How many milliliters of the 20% acid solution should she use?",
+    "answer": "150 ml"
+  },
+  {
+    "prompt": "A rectangular garden measures 12 meters by 8 meters. A circular pond with a radius of 2 meters is built in the center of the garden. What is the area of the garden *not* covered by the pond? Use \u03c0 \u2248 3.14.",
+    "answer": "83.44 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If two marbles are drawn without replacement, what is the probability that both marbles are red?",
+    "answer": "2/9"
+  },
+  {
+    "prompt": "What is the 10th term in the arithmetic sequence: 3, 7, 11, 15, ...?",
+    "answer": "39"
+  },
+  {
+    "prompt": "Sarah invests $1,000 at an annual interest rate of 4% compounded annually. How much money will she have after 3 years? Round your answer to the nearest cent.",
+    "answer": "$1124.86"
+  },
+  {
+    "prompt": "A theater sold 300 tickets for a play. Adult tickets cost $15 each and student tickets cost $10 each. If the total revenue from ticket sales was $3900, how many adult tickets were sold?",
+    "answer": "180"
+  },
+  {
+    "prompt": "A rectangular garden is 12 meters long and 8 meters wide. A circular fountain with a radius of 2 meters is placed in the center of the garden. What is the area of the garden *not* covered by the fountain? Use \u03c0 \u2248 3.14.",
+    "answer": "83.44 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If one marble is chosen at random, what is the probability that it is not blue?",
+    "answer": "7/10"
+  },
+  {
+    "prompt": "Pipe A can fill a tank in 6 hours. Pipe B can fill the same tank in 3 hours. If both pipes are opened simultaneously, how many hours will it take to fill the tank?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "Three bells ring at intervals of 10 minutes, 15 minutes, and 20 minutes, respectively. If they all ring together at 9:00 AM, at what time will they next ring together?",
+    "answer": "10:00 AM"
+  },
+  {
+    "prompt": "A school fundraiser sold adult tickets for $12 each and student tickets for $7 each. If a total of 300 tickets were sold and the total revenue was $2800, how many adult tickets were sold?",
+    "answer": "140"
+  },
+  {
+    "prompt": "A cylindrical water tank has a radius of 3 meters and a height of 10 meters. If it's filled to 80% of its capacity, what is the volume of water in the tank? (Use \u03c0 \u2248 3.14)",
+    "answer": "226.08 cubic meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If two marbles are drawn from the bag without replacement, what is the probability that both marbles are red?",
+    "answer": "2/9"
+  },
+  {
+    "prompt": "John can paint a fence in 6 hours, and Mary can paint the same fence in 4 hours. If they work together, how long will it take them to paint the fence?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "What is the smallest positive integer that is divisible by 2, 3, 4, 5, and 6?",
+    "answer": "60"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is three times its width. If the perimeter of the garden is 96 meters, what is the area of the garden?",
+    "answer": "432 square meters"
+  },
+  {
+    "prompt": "Sarah has $2.50 in quarters and dimes. If she has a total of 13 coins, how many quarters does she have?",
+    "answer": "8"
+  },
+  {
+    "prompt": "A bag contains 6 red marbles, 4 blue marbles, and 2 green marbles. If you pick one marble at random, what is the probability that it is either blue or green?",
+    "answer": "1/2"
+  },
+  {
+    "prompt": "If a tap can fill a bathtub in 10 minutes and the drain can empty it in 15 minutes, how long will it take to fill the bathtub if both the tap is running and the drain is open?",
+    "answer": "30 minutes"
+  },
+  {
+    "prompt": "The sum of three consecutive odd integers is 129. What is the largest of these integers?",
+    "answer": "45"
+  },
+  {
+    "prompt": "Sarah is currently twice as old as Tom. In 5 years, the sum of their ages will be 40. How old is Tom now?",
+    "answer": "10 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 15 meters, what is its area?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "A bag contains 3 red marbles, 4 blue marbles, and 5 green marbles. If one marble is chosen at random, what is the probability that it is not green?",
+    "answer": "7/12"
+  },
+  {
+    "prompt": "Pipe A can fill a tank in 6 hours, and Pipe B can fill the same tank in 3 hours. If both pipes are opened simultaneously, how long will it take to fill the tank?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "What is the smallest positive integer that is divisible by 2, 3, and 5?",
+    "answer": "30"
+  },
+  {
+    "prompt": "Sarah is 3 years older than twice John's age. If the sum of their ages is 39, how old is John?",
+    "answer": "12 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 15 meters, what is its area in square meters?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "A committee of 3 students needs to be chosen from a group of 5 boys and 4 girls. How many different committees can be formed if there must be exactly 2 boys and 1 girl?",
+    "answer": "40"
+  },
+  {
+    "prompt": "John can paint a room in 6 hours. Mary can paint the same room in 4 hours. If they work together, how many hours will it take them to paint the room?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "What is the smallest positive integer that is divisible by 2, 3, 4, 5, and 6?",
+    "answer": "60"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 40 meters. If the length is 4 meters more than the width, what is the length of the garden?",
+    "answer": "12 meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If one marble is chosen at random, what is the probability of choosing a blue marble?",
+    "answer": "3/10"
+  },
+  {
+    "prompt": "John can paint a fence in 6 hours. Mary can paint the same fence in 4 hours. If they work together, how many hours will it take them to paint the fence?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "What is the largest two-digit number that is divisible by both 3 and 5?",
+    "answer": "90"
+  },
+  {
+    "prompt": "A cylindrical can has a radius of 3 cm and a height of 10 cm. What is its volume? (Use \u03c0 \u2248 3.14)",
+    "answer": "282.6 cm\u00b3"
+  },
+  {
+    "prompt": "Sarah is 3 years older than her brother, Tom. In 5 years, the sum of their ages will be 35. How old is Tom currently?",
+    "answer": "11 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If the length of the garden is 5 meters more than its width, what is the area of the garden?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If one marble is chosen at random, what is the probability that it is not blue?",
+    "answer": "7/10"
+  },
+  {
+    "prompt": "Pipe A can fill a tank in 6 hours, and Pipe B can fill the same tank in 3 hours. If both pipes are opened simultaneously, how long will it take to fill the tank?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 3, 5, 8, 13, ?",
+    "answer": "21"
+  },
+  {
+    "prompt": "Sarah is currently twice as old as her brother, Tom. In 5 years, the sum of their ages will be 31. How old is Tom currently?",
+    "answer": "7 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 40 meters. If its length is 12 meters, what is the area of the garden in square meters?",
+    "answer": "96 square meters"
+  },
+  {
+    "prompt": "A bag contains 5 red marbles, 3 blue marbles, and 2 green marbles. If you pick one marble at random, what is the probability that it is a blue marble?",
+    "answer": "3/10"
+  },
+  {
+    "prompt": "It takes John 6 hours to paint a fence alone, and it takes Mike 3 hours to paint the same fence alone. If they work together, how many hours will it take them to paint the fence?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 5, 10, 17, 26, ___?",
+    "answer": "37"
+  },
+  {
+    "prompt": "A store sells two types of coffee beans: Arabica for $8 per pound and Robusta for $6 per pound. If a customer buys a total of 15 pounds of coffee for $106, how many pounds of Arabica coffee did they buy?",
+    "answer": "8 pounds"
+  },
+  {
+    "prompt": "A ladder is leaning against a wall. The base of the ladder is 5 feet away from the wall, and the top of the ladder reaches 12 feet up the wall. What is the length of the ladder?",
+    "answer": "13 feet"
+  },
+  {
+    "prompt": "A bag contains 4 red marbles, 6 blue marbles, and 5 green marbles. If one marble is chosen at random, what is the probability that it is a blue marble?",
+    "answer": "2/5"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 6, 12, 20, 30, ...?",
+    "answer": "42"
+  },
+  {
+    "prompt": "Two workers, John and Mary, are painting a fence. John can paint the entire fence by himself in 6 hours. Mary can paint the same fence by herself in 4 hours. If they work together, how long will it take them to paint the fence?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 40 meters. If its length is 4 meters greater than its width, what is the length of the garden?",
+    "answer": "12 meters"
+  },
+  {
+    "prompt": "John can paint a fence in 6 hours. Mary can paint the same fence in 4 hours. If they work together, how many hours will it take them to paint the fence?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "Sarah invested $1500 in an account that earns 3% simple annual interest. How much total interest will she earn after 5 years?",
+    "answer": "$225"
+  },
+  {
+    "prompt": "A cafe offers 3 types of sandwiches, 4 types of drinks, and 2 types of desserts. If a customer chooses one sandwich, one drink, and one dessert, how many different meal combinations are possible?",
+    "answer": "24 combinations"
+  },
+  {
+    "prompt": "A cylindrical water tank has a radius of 2 meters and a height of 5 meters. What is the approximate volume of the tank, using pi \u2248 3.14?",
+    "answer": "62.8 cubic meters"
+  },
+  {
+    "prompt": "A school principal ordered 250 units of stationery, consisting of pens and notebooks. Each pen costs $0.75, and each notebook costs $1.25. If the total cost was $237.50, how many notebooks did the principal order?",
+    "answer": "100"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 80 meters. If the length of the garden is 10 meters longer than its width, what is the area of the garden in square meters?",
+    "answer": "375 square meters"
+  },
+  {
+    "prompt": "Machine A can complete a production task in 6 hours. Machine B can complete the same task in 9 hours. If both machines work together, how many hours will it take them to complete the task?",
+    "answer": "3.6 hours"
+  },
+  {
+    "prompt": "A sequence starts with 3, and each subsequent term is generated by multiplying the previous term by 2 and then subtracting 1. What is the 5th term in this sequence?",
+    "answer": "33"
+  },
+  {
+    "prompt": "An item is on sale for 20% off its original price. If the sale price is $120, what was the original price of the item?",
+    "answer": "$150"
+  },
+  {
+    "prompt": "A store sells two types of coffee beans: Arabica and Robusta. A bag of Arabica costs $12 per pound, and a bag of Robusta costs $9 per pound. If a customer buys a total of 5 pounds of coffee for $51, how many pounds of Arabica did they buy?",
+    "answer": "2 pounds"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 40 meters. If the length of the garden is 4 meters more than its width, what is the area of the garden?",
+    "answer": "96 square meters"
+  },
+  {
+    "prompt": "John can paint a fence in 6 hours. Mike can paint the same fence in 4 hours. If they work together, how long will it take them to paint the fence?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "A sequence is defined by the formula a_n = 3n - 2. What is the value of the 7th term in the sequence?",
+    "answer": "19"
+  },
+  {
+    "prompt": "A bag contains 5 red balls, 3 blue balls, and 2 green balls. If one ball is chosen at random from the bag, what is the probability that it is not blue?",
+    "answer": "7/10"
+  },
+  {
+    "prompt": "A store sells a jacket for $75. If the store makes a 25% profit on the selling price of each jacket, what was the original cost of the jacket to the store?",
+    "answer": "$56.25"
+  },
+  {
+    "prompt": "A rectangular swimming pool has a perimeter of 60 meters. If the length of the pool is twice its width, what is the area of the pool in square meters?",
+    "answer": "200 square meters"
+  },
+  {
+    "prompt": "Two pipes are filling a large tank. Pipe A can fill the tank in 8 hours, and Pipe B can fill it in 12 hours. If both pipes are opened simultaneously, how many hours will it take to fill the tank?",
+    "answer": "4.8 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 5, 12, 26, 54, 110, __?",
+    "answer": "222"
+  },
+  {
+    "prompt": "A student needs to choose 2 elective courses from a list of 7 available courses. How many different combinations of 2 courses can the student choose?",
+    "answer": "21 combinations"
+  },
+  {
+    "prompt": "A farmer counts 30 heads and 80 legs among his chickens and cows. Assuming each chicken has 2 legs and each cow has 4 legs, how many chickens does the farmer have?",
+    "answer": "20"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 40 meters. If its length is 12 meters, what is the area of the garden in square meters?",
+    "answer": "96 square meters"
+  },
+  {
+    "prompt": "It takes John 3 hours to mow a lawn by himself, and it takes Sarah 6 hours to mow the same lawn by herself. If they work together, how many hours will it take them to mow the lawn?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "In a class of 25 students, 15 are boys and 10 are girls. If a student is chosen at random to be the class representative, what is the probability that the student chosen is a girl? Express your answer as a simplified fraction.",
+    "answer": "2/5"
+  },
+  {
+    "prompt": "Emily is 4 years older than David. In 6 years, Emily will be twice as old as David was 2 years ago. How old is Emily currently?",
+    "answer": "18 years old"
+  },
+  {
+    "prompt": "A rectangular swimming pool has a length that is 5 meters more than its width. If the perimeter of the pool is 50 meters, what is the width of the pool?",
+    "answer": "10 meters"
+  },
+  {
+    "prompt": "A train travels at an average speed of 75 miles per hour. If it completes a journey of 450 miles, how many hours did the journey take?",
+    "answer": "6 hours"
+  },
+  {
+    "prompt": "A store is having a sale where all items are discounted by 25%. If a pair of headphones originally costs $80, what is the sale price?",
+    "answer": "$60"
+  },
+  {
+    "prompt": "The sum of three consecutive odd integers is 129. What is the middle integer?",
+    "answer": "43"
+  },
+  {
+    "prompt": "Working alone, plumber A can fix a leaky faucet in 3 hours. Plumber B can do the same job in 6 hours. If they work together, how long will it take them to fix the faucet?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "A cafe sells two types of coffee blends: blend A at $5 per pound and blend B at $8 per pound. If a customer buys a total of 10 pounds of coffee for $62, how many pounds of blend A did they buy?",
+    "answer": "6 pounds"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 40 meters. If the length of the garden is 4 meters more than its width, what is the area of the garden in square meters?",
+    "answer": "96 square meters"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 3, 7, 13, 21, 31, ...?",
+    "answer": "43"
+  },
+  {
+    "prompt": "A bag contains 5 red balls, 3 blue balls, and 2 green balls. If one ball is drawn at random, what is the probability that it is a blue ball? (Express as a simplified fraction)",
+    "answer": "3/10"
+  },
+  {
+    "prompt": "Machine A can complete a task in 6 hours, and Machine B can complete the same task in 8 hours. If both machines work together, how many hours will it take to complete the task?",
+    "answer": "24/7 hours"
+  },
+  {
+    "prompt": "A farmer sells chickens and rabbits. If there are a total of 30 heads and 84 legs among them, how many chickens does the farmer have?",
+    "answer": "18"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 5 meters more than its width, what is the area of the garden in square meters?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "Machine A can complete a specific task in 10 hours. Machine B can complete the same task in 15 hours. If both machines work together, how many hours will it take them to complete the task?",
+    "answer": "6 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 3, 7, 15, 31, 63, ...?",
+    "answer": "127"
+  },
+  {
+    "prompt": "A committee of 3 people needs to be chosen from a group of 5 men and 4 women. If the committee must consist of exactly 2 men and 1 woman, how many different committees can be formed?",
+    "answer": "40"
+  },
+  {
+    "prompt": "A bakery sells cookies for $1.50 each and brownies for $2.25 each. On a particular day, they sold a total of 150 baked goods and made $281.25. How many cookies did they sell?",
+    "answer": "75 cookies"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 48 meters. If the length of the garden is twice its width, what is the area of the garden in square meters?",
+    "answer": "128 square meters"
+  },
+  {
+    "prompt": "Sarah can paint a room in 6 hours. John can paint the same room in 4 hours. If they work together, how many hours will it take them to paint the room?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 3, 7, 13, 21, 31, ?",
+    "answer": "43"
+  },
+  {
+    "prompt": "A shirt is on sale for 25% off its original price. If the sale price is $36, what was the original price of the shirt?",
+    "answer": "$48"
+  },
+  {
+    "prompt": "A theater sold 400 tickets for a play. Adult tickets cost $15 and student tickets cost $10. If the total revenue from ticket sales was $5250, how many adult tickets were sold?",
+    "answer": "250"
+  },
+  {
+    "prompt": "A ladder is 13 feet long. If the base of the ladder is placed 5 feet from a wall, how high up the wall does the ladder reach?",
+    "answer": "12 feet"
+  },
+  {
+    "prompt": "Sarah invested $8000 in a savings account that earns 4% simple annual interest. How much interest will she earn after 3 years?",
+    "answer": "$960"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 5, 10, 17, 26, ___?",
+    "answer": "37"
+  },
+  {
+    "prompt": "If it takes 6 hours for 3 identical machines to complete a job, how many hours will it take for 2 of these machines to complete the same job, assuming they work at the same rate?",
+    "answer": "9 hours"
+  },
+  {
+    "prompt": "A farmer has chickens and pigs. He counts 40 heads and 100 legs in total. How many chickens does he have?",
+    "answer": "30"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 50 meters. If its length is 15 meters, what is its area in square meters?",
+    "answer": "150 square meters"
+  },
+  {
+    "prompt": "Machine A can produce 100 widgets in 5 hours. Machine B can produce 100 widgets in 4 hours. If both machines work together, how many hours will it take them to produce 100 widgets?",
+    "answer": "20/9 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 6, 12, 20, 30, ___?",
+    "answer": "42"
+  },
+  {
+    "prompt": "A bag contains 8 red balls, 5 blue balls, and 7 green balls. If one ball is drawn at random, what is the probability that it is a blue ball? Express your answer as a simplified fraction.",
+    "answer": "1/4"
+  },
+  {
+    "prompt": "A cafe sells two sizes of coffee. A small coffee costs $2.50 and a large coffee costs $3.75. On a certain day, the cafe sold a total of 120 coffees and earned $382.50. How many large coffees were sold?",
+    "answer": "66"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 72 meters. If the length of the garden is 4 meters more than its width, what is the area of the garden in square meters?",
+    "answer": "320"
+  },
+  {
+    "prompt": "Worker A can complete a task in 6 hours. Worker B can complete the same task in 8 hours. If they work together, how many hours will it take them to complete the task?",
+    "answer": "24/7 hours"
+  },
+  {
+    "prompt": "A school club has 7 members. They need to elect a president, a vice-president, and a treasurer. No member can hold more than one position. How many different ways can these three positions be filled?",
+    "answer": "210 ways"
+  },
+  {
+    "prompt": "A laptop is originally priced at $850. It is on sale with a 20% discount. An additional 10% discount is applied to the sale price. What is the final price of the laptop after both discounts?",
+    "answer": "$612"
+  },
+  {
+    "prompt": "A construction company charges a flat fee of $150 plus $45 per hour for labor. If a client's total bill was $600, how many hours did the labor take?",
+    "answer": "10 hours"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 48 meters. If its length is twice its width, what is the area of the garden?",
+    "answer": "128 square meters"
+  },
+  {
+    "prompt": "A store is offering a 25% discount on all items. If a bicycle originally costs $320, what is its price after the discount?",
+    "answer": "$240"
+  },
+  {
+    "prompt": "In how many different ways can the letters of the word \"MATH\" be arranged?",
+    "answer": "24 ways"
+  },
+  {
+    "prompt": "Sarah is currently 3 times as old as her brother, Tom. In 5 years, Sarah will be twice as old as Tom. How old is Tom currently?",
+    "answer": "5 years old"
+  },
+  {
+    "prompt": "A farmer has chickens and cows. He counts a total of 40 heads and 104 legs. How many chickens does the farmer have?",
+    "answer": "28 chickens"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 60 meters. If its length is twice its width, what is the area of the garden in square meters?",
+    "answer": "200 square meters"
+  },
+  {
+    "prompt": "John can paint a fence in 6 hours, and Mary can paint the same fence in 4 hours. If they work together, how many hours will it take them to paint the fence?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "A shirt is on sale for 25% off its original price. If the sale price of the shirt is $36, what was its original price?",
+    "answer": "$48"
+  },
+  {
+    "prompt": "A plant grows 3 cm on the first day, 5 cm on the second day, 7 cm on the third day, and so on, following an arithmetic progression. How tall will the plant be after 10 days?",
+    "answer": "120 cm"
+  },
+  {
+    "prompt": "A bakery sells two types of cookies: chocolate chip and oatmeal. On Monday, they sold 120 chocolate chip cookies and 80 oatmeal cookies for a total revenue of $360. On Tuesday, they sold 150 chocolate chip cookies and 50 oatmeal cookies for a total revenue of $375. What is the price of one chocolate chip cookie?",
+    "answer": "$2.00"
+  },
+  {
+    "prompt": "A rectangular garden has a diagonal path that is 25 meters long. If one side of the garden is 15 meters long, what is the area of the garden in square meters?",
+    "answer": "300 square meters"
+  },
+  {
+    "prompt": "It takes John 6 hours to paint a room alone. It takes Sarah 4 hours to paint the same room alone. If they work together, how many hours will it take them to paint the room?",
+    "answer": "2.4 hours"
+  },
+  {
+    "prompt": "A sequence of numbers follows the pattern: 2, 5, 10, 17, 26, ... What is the 7th number in this sequence?",
+    "answer": "50"
+  },
+  {
+    "prompt": "A school committee needs to select a president, a vice-president, and a secretary from a group of 8 eligible students. How many different ways can these three positions be filled?",
+    "answer": "336 ways"
+  },
+  {
+    "prompt": "A car travels at an average speed of 60 miles per hour for 3.5 hours. How far does it travel in total?",
+    "answer": "210 miles"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 60 meters. If the length of the garden is twice its width, what is the area of the garden?",
+    "answer": "200 square meters"
+  },
+  {
+    "prompt": "Sarah bought a laptop for $1200. The sales tax was 8.5%. What was the total amount she paid for the laptop, including tax?",
+    "answer": "$1302"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 2, 5, 10, 17, 26, ?",
+    "answer": "37"
+  },
+  {
+    "prompt": "John can build a fence in 10 hours. Mike can build the same fence in 15 hours. If they work together, how many hours will it take them to build the fence?",
+    "answer": "6 hours"
+  },
+  {
+    "prompt": "Pipe A can fill an empty water tank in 3 hours. Pipe B can fill the same empty tank in 5 hours. If both pipes are opened simultaneously, how many hours will it take to fill the tank completely?",
+    "answer": "1.875 hours"
+  },
+  {
+    "prompt": "A rectangular swimming pool is 20 meters long and 10 meters wide. It is surrounded by a uniform concrete deck that is 1.5 meters wide on all sides. What is the total area of the concrete deck?",
+    "answer": "99 square meters"
+  },
+  {
+    "prompt": "How many distinct permutations can be made from the letters of the word \"MATHEMATICS\"?",
+    "answer": "4,989,600 permutations"
+  },
+  {
+    "prompt": "A bag contains 8 red balls, 5 blue balls, and 7 green balls. If one ball is chosen at random, what is the probability that the chosen ball is neither red nor green?",
+    "answer": "1/4"
+  },
+  {
+    "prompt": "A jacket originally costs $120. During a sale, it is discounted by 20%. An additional 15% discount is then applied to the sale price. What is the final price of the jacket after both discounts?",
+    "answer": "$81.60"
+  },
+  {
+    "prompt": "A theater sold 300 tickets for a play. Adult tickets cost $15 and student tickets cost $10. If the total revenue from ticket sales was $3800, how many adult tickets were sold?",
+    "answer": "160"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 48 meters. If its length is 4 meters greater than its width, what is the area of the garden in square meters?",
+    "answer": "140"
+  },
+  {
+    "prompt": "Two pipes are filling a large tank. Pipe A can fill the tank in 6 hours, and Pipe B can fill it in 8 hours. If both pipes are opened simultaneously, how many hours will it take to fill the tank?",
+    "answer": "24/7"
+  },
+  {
+    "prompt": "In how many distinct ways can the letters of the word 'MISSISSIPPI' be arranged?",
+    "answer": "34650"
+  },
+  {
+    "prompt": "An item is originally priced at $200. It is first discounted by 20%, and then an additional 10% discount is applied to the sale price. What is the final price of the item?",
+    "answer": "144"
+  },
+  {
+    "prompt": "A farmer has chickens and cows. He counts 48 heads and 140 legs in total. How many chickens does he have?",
+    "answer": "26"
+  },
+  {
+    "prompt": "A rectangular garden has a perimeter of 60 meters. If the length is twice its width, what is the area of the garden in square meters?",
+    "answer": "200 square meters"
+  },
+  {
+    "prompt": "It takes Pipe A 6 hours to fill a tank and Pipe B 3 hours to fill the same tank. If both pipes are opened simultaneously, how many hours will it take to fill the tank?",
+    "answer": "2 hours"
+  },
+  {
+    "prompt": "A sequence starts with 2, 5, 10, 17, 26... What is the next number in the sequence?",
+    "answer": "37"
+  },
+  {
+    "prompt": "The product of two consecutive positive integers is 132. What is the smaller of these two integers?",
+    "answer": "11"
+  },
+  {
+    "prompt": "The sum of two numbers is 38. If one number is 10 more than the other, what are the two numbers?",
+    "answer": "14 and 24"
+  },
+  {
+    "prompt": "A rectangular swimming pool is 25 meters long and 10 meters wide. If a fence is to be built around the pool, and each meter of fencing costs $15, what will be the total cost of the fence?",
+    "answer": "$1050"
+  },
+  {
+    "prompt": "Working alone, Sarah can complete a project in 8 hours. Emily can complete the same project in 12 hours. How many hours will it take them to complete the project if they work together?",
+    "answer": "4.8 hours"
+  },
+  {
+    "prompt": "What is the next number in the sequence: 3, 7, 13, 21, 31, ...?",
+    "answer": "43"
+  },
+  {
+    "prompt": "A bag contains 5 red, 3 blue, and 2 green balls. If one ball is chosen at random, what is the probability that it is not blue?",
+    "answer": "7/10"
+  },
+  {
+    "prompt": "A pizza is cut into 8 equal slices. If Sarah eats 3 slices and her brother eats 2 slices, what fraction of the pizza remains?",
+    "answer": "3/8"
+  },
+  {
+    "prompt": "A rectangular garden has a length of 12 feet and a width of 8 feet. If fencing costs $3 per foot, how much will it cost to fence the entire perimeter?",
+    "answer": "$120"
+  },
+  {
+    "prompt": "In a class of 30 students, 18 play soccer, 12 play basketball, and 6 play both sports. How many students play neither sport?",
+    "answer": "6 students"
+  },
+  {
+    "prompt": "A bank account earns 4% simple interest per year. If $500 is deposited, what will be the total amount in the account after 3 years?",
+    "answer": "$560"
+  },
+  {
+    "prompt": "A sequence follows the pattern: 3, 7, 11, 15, 19, ... What is the 10th term in this sequence?",
+    "answer": "39"
+  },
+  {
+    "prompt": "Sarah has twice as many stickers as Tom. If Tom has 15 stickers and they combine their collections, how many stickers do they have together?",
+    "answer": "45"
+  },
+  {
+    "prompt": "A rectangular garden has a length of 12 feet and a width of 8 feet. If fencing costs $3 per foot, how much will it cost to fence the entire perimeter?",
+    "answer": "$120"
+  },
+  {
+    "prompt": "In a class of 30 students, 18 play soccer, 12 play basketball, and 6 play both sports. How many students play neither sport?",
+    "answer": "6"
+  },
+  {
+    "prompt": "A store marks up items by 25% above cost. If a jacket costs the store $80, what is the selling price?",
+    "answer": "$100"
+  },
+  {
+    "prompt": "The sum of three consecutive odd numbers is 75. What is the largest of these three numbers?",
+    "answer": "27"
+  },
+  {
+    "prompt": "A bakery sells cupcakes for $3 each and cookies for $2 each. If Sarah buys 4 cupcakes and 6 cookies, how much does she spend in total?",
+    "answer": "$24"
+  },
+  {
+    "prompt": "The sum of three consecutive even numbers is 84. What is the smallest of these three numbers?",
+    "answer": "26"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 meters longer than twice its width. If the perimeter is 36 meters, what is the width of the garden?",
+    "answer": "5 meters"
+  },
+  {
+    "prompt": "In a class of 30 students, 18 play soccer, 12 play basketball, and 5 play both sports. How many students play neither soccer nor basketball?",
+    "answer": "5 students"
+  },
+  {
+    "prompt": "A car depreciates in value by 15% each year. If the car was originally worth $20,000, what is its value after 2 years?",
+    "answer": "$14,450"
+  },
+  {
+    "prompt": "A rectangle has a length that is 3 times its width. If the perimeter is 48 feet, what is the width of the rectangle?",
+    "answer": "6 feet"
+  },
+  {
+    "prompt": "Sarah bought 4 notebooks and 3 pens for $18. If each notebook costs twice as much as a pen, how much does one pen cost?",
+    "answer": "$1.64"
+  },
+  {
+    "prompt": "A car's value depreciates by 15% each year. If the car was worth $20,000 initially, what will it be worth after 3 years?",
+    "answer": "$12,282.50"
+  },
+  {
+    "prompt": "In a class of 30 students, the ratio of boys to girls is 3:2. How many boys are in the class?",
+    "answer": "18 boys"
+  },
+  {
+    "prompt": "A ladder is leaning against a wall. The bottom of the ladder is 8 feet from the wall, and the ladder reaches 15 feet up the wall. What is the length of the ladder?",
+    "answer": "17 feet"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet more than twice its width. If the perimeter is 54 feet, what is the width of the garden?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "Sarah scored 85, 92, and 88 on her first three math tests. What score does she need on her fourth test to have an average of 90?",
+    "answer": "95"
+  },
+  {
+    "prompt": "A pizza is cut into 8 equal slices. If 3/4 of the pizza is eaten, how many slices remain?",
+    "answer": "2 slices"
+  },
+  {
+    "prompt": "The sum of three consecutive odd integers is 63. What is the largest of these three integers?",
+    "answer": "23"
+  },
+  {
+    "prompt": "A store offers a 25% discount on a jacket originally priced at $80. After the discount, a 6% sales tax is applied. What is the final price?",
+    "answer": "$63.60"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet longer than twice its width. If the perimeter is 42 feet, what is the width of the garden?",
+    "answer": "6 feet"
+  },
+  {
+    "prompt": "Sarah invested $2,500 at 4% simple interest per year. How much total money will she have after 3 years?",
+    "answer": "$2,800"
+  },
+  {
+    "prompt": "A basketball player makes 3 out of every 5 free throws. If she attempts 25 free throws in a game, how many would you expect her to make?",
+    "answer": "15"
+  },
+  {
+    "prompt": "The sum of three consecutive even integers is 126. What is the largest of these three integers?",
+    "answer": "44"
+  },
+  {
+    "prompt": "A pizza is cut into 8 equal slices. If 5 friends share the pizza equally and there are 2 slices left over, how many whole slices did each friend eat?",
+    "answer": "1"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet more than twice its width. If the perimeter is 54 feet, what is the width of the garden?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "Sarah has twice as many apples as oranges. She has 5 more bananas than oranges. If she has 27 pieces of fruit in total, how many oranges does she have?",
+    "answer": "5.5 oranges"
+  },
+  {
+    "prompt": "A car depreciates at a rate of 15% per year. If the car was originally worth $24,000, what will it be worth after 3 years?",
+    "answer": "$14,739"
+  },
+  {
+    "prompt": "In a class of 30 students, the ratio of boys to girls is 3:2. If 4 new girls join the class, what is the new ratio of boys to girls?",
+    "answer": "3:2"
+  },
+  {
+    "prompt": "A ladder leans against a wall, making a 60\u00b0 angle with the ground. If the ladder is 12 feet long, how high up the wall does it reach?",
+    "answer": "10.39 feet"
+  },
+  {
+    "prompt": "A basketball team scored 78 points in their first game and 92 points in their second game. If they want their average score per game to be 85 points after three games, how many points must they score in their third game?",
+    "answer": "85 points"
+  },
+  {
+    "prompt": "Sarah is planning a rectangular garden with a perimeter of 48 feet. If the length is 4 feet longer than twice the width, what is the width of the garden?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "A store offers a 25% discount on all items, followed by an additional 10% discount for students. If Maria is a student and buys a jacket originally priced at $80, how much does she pay?",
+    "answer": "$54"
+  },
+  {
+    "prompt": "In a parking lot, there are cars and motorcycles totaling 35 vehicles. If there are 118 wheels in total, how many motorcycles are there?",
+    "answer": "12 motorcycles"
+  },
+  {
+    "prompt": "The sum of three consecutive odd integers is 147. What is the largest of these three integers?",
+    "answer": "51"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet more than twice its width. If the perimeter is 54 feet, what is the width of the garden?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "Sarah bought 12 apples and 8 oranges for a total of $18.40. If apples cost $0.80 each, how much does each orange cost?",
+    "answer": "$1.60"
+  },
+  {
+    "prompt": "A basketball player makes 75% of his free throws. If he attempts 20 free throws in a game, how many would you expect him to make?",
+    "answer": "15"
+  },
+  {
+    "prompt": "The sum of three consecutive odd integers is 87. What is the largest of these three integers?",
+    "answer": "31"
+  },
+  {
+    "prompt": "A car rental company charges $25 per day plus $0.15 per mile driven. If someone rents a car for 3 days and drives 240 miles, what is the total cost?",
+    "answer": "$111"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet more than twice its width. If the perimeter is 42 feet, what is the width of the garden?",
+    "answer": "6 feet"
+  },
+  {
+    "prompt": "Sarah bought 4 notebooks and 3 pens for $17.50. If each notebook costs $3.25, what is the cost of each pen?",
+    "answer": "$1.75"
+  },
+  {
+    "prompt": "A basketball player makes 3 out of every 5 free throws. If she attempts 25 free throws in a game, how many would you expect her to make?",
+    "answer": "15"
+  },
+  {
+    "prompt": "The sum of three consecutive even integers is 78. What is the smallest of these three integers?",
+    "answer": "24"
+  },
+  {
+    "prompt": "A movie theater sells adult tickets for $12 and child tickets for $8. If they sold 150 tickets total and collected $1,520, how many adult tickets were sold?",
+    "answer": "80"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet more than twice its width. If the perimeter is 54 feet, what is the width of the garden?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "Sarah bought 12 apples and 8 oranges. If apples cost $0.75 each and oranges cost $1.25 each, how much did she spend in total?",
+    "answer": "$19"
+  },
+  {
+    "prompt": "A number is decreased by 15, then multiplied by 4, and the result is 68. What is the original number?",
+    "answer": "32"
+  },
+  {
+    "prompt": "In a class of 30 students, the ratio of boys to girls is 3:2. How many girls are in the class?",
+    "answer": "12 girls"
+  },
+  {
+    "prompt": "A car's value depreciates by 20% each year. If the car was worth $25,000 initially, what will it be worth after 2 years?",
+    "answer": "$16,000"
+  },
+  {
+    "prompt": "A rectangle has a length that is 3 times its width. If the perimeter is 48 feet, what is the width of the rectangle?",
+    "answer": "6 feet"
+  },
+  {
+    "prompt": "Sarah bought 3 notebooks for $2.50 each and 2 pens for $1.25 each. If she paid with a $20 bill, how much change did she receive?",
+    "answer": "$10.00"
+  },
+  {
+    "prompt": "In a class of 28 students, the ratio of boys to girls is 3:4. How many girls are in the class?",
+    "answer": "16 girls"
+  },
+  {
+    "prompt": "A ball is thrown upward with an initial velocity. After 4 seconds, it reaches a maximum height of 64 feet above the ground. If the height follows the equation h = -16t\u00b2 + vt + h\u2080, and the ball was thrown from ground level, what was the initial velocity?",
+    "answer": "64 ft/s"
+  },
+  {
+    "prompt": "Tom's age is currently twice his sister's age. In 6 years, Tom will be 1.5 times his sister's age. How old is Tom now?",
+    "answer": "12 years old"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet more than twice its width. If the perimeter is 54 feet, what is the width of the garden?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "Sarah has twice as many books as Tom. If Tom gives Sarah 5 books, she will have 3 times as many books as Tom has left. How many books does Sarah originally have?",
+    "answer": "30 books"
+  },
+  {
+    "prompt": "A ladder leans against a wall forming a right triangle. The ladder is 13 feet long and the bottom is 5 feet from the wall. How high up the wall does the ladder reach?",
+    "answer": "12 feet"
+  },
+  {
+    "prompt": "In a class of 28 students, the ratio of boys to girls is 3:4. How many girls are in the class?",
+    "answer": "16 girls"
+  },
+  {
+    "prompt": "A store offers a 25% discount on a jacket, then applies an additional 10% discount to the sale price. If the original price was $80, what is the final price?",
+    "answer": "$54"
+  },
+  {
+    "prompt": "A bakery sells cupcakes for $3 each and cookies for $2 each. If Sarah buys 4 cupcakes and 7 cookies, how much does she spend in total?",
+    "answer": "$26"
+  },
+  {
+    "prompt": "The sum of three consecutive integers is 72. What is the largest of these three integers?",
+    "answer": "25"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 meters longer than twice its width. If the perimeter is 42 meters, what is the width of the garden?",
+    "answer": "6 meters"
+  },
+  {
+    "prompt": "In a class of 30 students, 18 students play soccer, 12 students play basketball, and 8 students play both sports. How many students play neither sport?",
+    "answer": "8 students"
+  },
+  {
+    "prompt": "A car depreciates in value by 15% each year. If the car was originally worth $20,000, what will it be worth after 2 years?",
+    "answer": "$14,450"
+  },
+  {
+    "prompt": "A pizza is cut into 8 equal slices. If Sarah eats 3 slices and Mike eats 2 slices, what fraction of the pizza remains?",
+    "answer": "3/8"
+  },
+  {
+    "prompt": "A rectangular garden has a length of 15 feet and a width of 8 feet. If fencing costs $4 per foot, how much will it cost to fence the entire perimeter?",
+    "answer": "$184"
+  },
+  {
+    "prompt": "In a class of 30 students, 18 play soccer, 12 play basketball, and 8 play both sports. How many students play neither sport?",
+    "answer": "8 students"
+  },
+  {
+    "prompt": "A car depreciates 20% of its value each year. If the car was originally worth $25,000, what will it be worth after 2 years?",
+    "answer": "$16,000"
+  },
+  {
+    "prompt": "If the sum of three consecutive odd integers is 63, what is the largest of the three integers?",
+    "answer": "23"
+  },
+  {
+    "prompt": "A pizza is cut into 8 equal slices. If Sarah eats 3 slices and Tom eats 2 slices, what fraction of the pizza remains?",
+    "answer": "3/8"
+  },
+  {
+    "prompt": "A rectangular garden has a length of 15 feet and a width of 8 feet. If fencing costs $12 per foot, how much will it cost to fence the entire perimeter?",
+    "answer": "$552"
+  },
+  {
+    "prompt": "In a class of 30 students, 18 play soccer, 12 play basketball, and 6 play both sports. How many students play neither sport?",
+    "answer": "6 students"
+  },
+  {
+    "prompt": "A store offers a 25% discount on a jacket that originally costs $80. After the discount, a 6% sales tax is added. What is the final price?",
+    "answer": "$63.60"
+  },
+  {
+    "prompt": "If the sum of three consecutive odd numbers is 87, what is the largest of the three numbers?",
+    "answer": "31"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 feet longer than twice its width. If the perimeter is 54 feet, what is the width of the garden?",
+    "answer": "8 feet"
+  },
+  {
+    "prompt": "Sarah bought 3 notebooks and 5 pens for $23. If each notebook costs $4, what is the price of one pen?",
+    "answer": "$2.20"
+  },
+  {
+    "prompt": "A basketball player makes 75% of her free throws. If she attempts 20 free throws in a game, how many would you expect her to make?",
+    "answer": "15"
+  },
+  {
+    "prompt": "The sum of three consecutive odd integers is 87. What is the smallest of these three integers?",
+    "answer": "27"
+  },
+  {
+    "prompt": "A car's value depreciates by 15% each year. If the car was originally worth $24,000, what will it be worth after 2 years?",
+    "answer": "$17,340"
+  },
+  {
+    "prompt": "A rectangular garden has a length that is 3 meters longer than its width. If the perimeter is 26 meters, what is the width of the garden?",
+    "answer": "5 meters"
+  },
+  {
+    "prompt": "Sarah buys 4 notebooks and 3 pens for $18. If each notebook costs twice as much as each pen, how much does one pen cost?",
+    "answer": "$1.64"
+  }
+]
