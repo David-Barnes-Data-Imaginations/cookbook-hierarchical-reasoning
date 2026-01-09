@@ -42,13 +42,20 @@ else:
 # ============================================================================
 
 # Hardware-adapted context lengths (RTX 4090)
-STAGE_1_MAX_SEQ_LENGTH = 4096   # Foundation stage
-STAGE_2_MAX_SEQ_LENGTH = 8192   # Extended reasoning stage
+STAGE_1_MAX_SEQ_LENGTH = 16384   # Foundation stage
+STAGE_2_MAX_SEQ_LENGTH = 32768   # Extended reasoning stage
 
-# Sample sizes per stage
-STAGE_1_NEMOTRON_SAMPLES = 3000   # Math reasoning
-STAGE_2_NEMOTRON_SAMPLES = 2000   # Additional harder problems
-STAGE_2_CODE_SAMPLES = 1000       # Code reasoning (if available)
+# Stage 1 sample sizes (chat split - 50/50 reasoning on/off)
+STAGE_1_TOTAL_SAMPLES = 3000
+STAGE_1_REASONING_OFF_SAMPLES = 1500  # 50%
+STAGE_1_REASONING_ON_SAMPLES = 1500   # 50%
+
+# Stage 2 sample sizes (all reasoning=on)
+STAGE_2_TOTAL_SAMPLES = 3000
+STAGE_2_MATH_RATIO = 0.57       # ~57%
+STAGE_2_CODE_RATIO = 0.30       # ~30%
+STAGE_2_STEM_RATIO = 0.06       # ~6%
+STAGE_2_TOOL_CALLING_RATIO = 0.07  # ~7%
 
 # LoRA configuration
 LORA_RANK = 128
@@ -83,9 +90,9 @@ USE_PACKING = False
 
 print(f"⚡ Stability mode: {NUM_CPU_THREADS} CPU threads, {NUM_PROC_WORKERS} data workers, packing={USE_PACKING}")
 
-# File paths
-SAMPLE_TRACKING_FILE = "sft_used_samples.json"
-STRATEGIC_GRAMS_FILE = "strategic_grams_deduplicated.json"
+# File paths (absolute paths to ensure they save to project directory)
+SAMPLE_TRACKING_FILE = PROJECT_ROOT / "sft_used_samples.json"
+STRATEGIC_GRAMS_FILE = PROJECT_ROOT / "strategic_grams_deduplicated.json"
 
 # ============================================================================
 # SYSTEM PROMPTS WITH MODE CONTROL
@@ -114,17 +121,25 @@ When you see /no_think in the user message, respond directly with just the answe
 
 def load_used_samples():
     """Load the tracking file of samples used in SFT."""
-    if os.path.exists(SAMPLE_TRACKING_FILE):
-        with open(SAMPLE_TRACKING_FILE, "r") as f:
+    tracking_file = Path(SAMPLE_TRACKING_FILE)
+    if tracking_file.exists():
+        with open(tracking_file, "r") as f:
             return json.load(f)
     return {"stage_1": {}, "stage_2": {}}
 
 
 def save_used_samples(tracking_data):
-    """Save the tracking file."""
-    with open(SAMPLE_TRACKING_FILE, "w") as f:
+    """Save the tracking file to disk.
+    
+    This saves the question IDs used during SFT so they can be excluded
+    from RL training later.
+    """
+    tracking_file = Path(SAMPLE_TRACKING_FILE)
+    with open(tracking_file, "w") as f:
         json.dump(tracking_data, f, indent=2)
-    print(f"💾 Saved sample tracking to '{SAMPLE_TRACKING_FILE}'")
+    print(f"💾 Saved sample tracking to '{tracking_file}'")
+    print(f"   Total Stage 1 samples tracked: {sum(len(v) for v in tracking_data.get('stage_1', {}).values())}")
+    print(f"   Total Stage 2 samples tracked: {sum(len(v) for v in tracking_data.get('stage_2', {}).values())}")
 
 
 def mark_samples_used(stage: str, source: str, sample_ids: list, tracking_data: dict):
@@ -207,104 +222,99 @@ def format_nemotron_for_sft(example, mode="thinking"):
     }
 
 
-def format_hicra_for_sft(example, mode="thinking"):
-    """Format HICRA dataset example for SFT training."""
-    user_content = example.get('prompt', '')
-    expected_answer = str(example.get('answer', ''))
+def filter_by_reasoning(dataset, reasoning_value: str):
+    """
+    Filter dataset by the 'reasoning' column value.
     
-    if mode == "thinking":
-        system_prompt = THINKING_SYSTEM_PROMPT
-        user_message = f"/think {user_content}"
-        # For HICRA, we construct a thinking response
-        assistant_message = f"<think>\nLet me work through this problem step by step.\n</think>\n<answer>\n{expected_answer}\n</answer>"
-    else:
-        system_prompt = DIRECT_SYSTEM_PROMPT
-        user_message = f"/no_think {user_content}"
-        assistant_message = expected_answer
+    Args:
+        dataset: HuggingFace dataset or iterable
+        reasoning_value: 'on' or 'off'
     
-    return {
-        "messages": [
-            {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_message},
-            {"role": "assistant", "content": assistant_message},
-        ],
-        "mode": mode,
-        "source": "hicra"
-    }
+    Returns:
+        Filtered examples as a generator
+    """
+    for example in dataset:
+        if example.get('reasoning') == reasoning_value:
+            yield example
 
 
 def load_stage_1_data(tracking_data: dict):
     """
-    Load Stage 1 training data.
+    Load Stage 1 training data from Nemotron chat split.
     
     Stage 1 focuses on:
-    - Foundation with general + math reasoning
-    - DUAL MODE: Both thinking and direct response variants
-    - Shorter context (4K)
+    - 50% chat with reasoning=off (direct responses, /no_think mode)
+    - 50% chat with reasoning=on (thinking responses, /think mode)
+    - Shorter context (16K)
     """
-    print("\n📚 Loading Stage 1 Data (Foundation)...")
+    print("\n📚 Loading Stage 1 Data (Chat Foundation)...")
     print("=" * 50)
+    print(f"   Target: {STAGE_1_REASONING_OFF_SAMPLES} reasoning=off + {STAGE_1_REASONING_ON_SAMPLES} reasoning=on")
     
     all_examples = []
-    used_sample_ids = {"nemotron_math": [], "hicra": []}
+    used_sample_ids = {"chat_reasoning_off": [], "chat_reasoning_on": []}
     
-    # 1. Load HICRA dataset (both modes)
-    print("📂 Loading HICRA dataset...")
+    # Load Nemotron chat split (streaming to handle large dataset)
+    print("🌊 Streaming Nemotron chat split...")
     try:
-        hicra_dataset = load_dataset("json", data_files="reasoning_dataset_v2_train.json", split="train")
-        
-        for idx, example in enumerate(hicra_dataset):
-            # Create BOTH thinking and direct variants (NVIDIA's parallel response strategy)
-            thinking_example = format_hicra_for_sft(example, mode="thinking")
-            direct_example = format_hicra_for_sft(example, mode="direct")
-            
-            if thinking_example:
-                all_examples.append(thinking_example)
-            if direct_example:
-                all_examples.append(direct_example)
-            
-            used_sample_ids["hicra"].append(idx)
-        
-        print(f"   ✅ Loaded {len(hicra_dataset)} HICRA examples (×2 for dual mode)")
-    except Exception as e:
-        print(f"   ⚠️ Could not load HICRA: {e}")
-    
-    # 2. Load Nemotron Math (streaming)
-    print(f"🌊 Streaming {STAGE_1_NEMOTRON_SAMPLES} Nemotron math examples...")
-    try:
-        nemotron_stream = load_dataset(
+        chat_stream = load_dataset(
             "nvidia/Nemotron-Post-Training-Dataset-v1",
-            split="math",
+            split="chat",
             streaming=True
         )
         
-        count = 0
-        for idx, example in enumerate(tqdm(nemotron_stream, total=STAGE_1_NEMOTRON_SAMPLES)):
-            if count >= STAGE_1_NEMOTRON_SAMPLES:
+        # Collect samples with reasoning=off (direct mode)
+        print(f"   📂 Collecting {STAGE_1_REASONING_OFF_SAMPLES} samples with reasoning=off...")
+        reasoning_off_count = 0
+        for idx, example in enumerate(tqdm(chat_stream, total=STAGE_1_REASONING_OFF_SAMPLES * 2, desc="reasoning=off")):
+            if reasoning_off_count >= STAGE_1_REASONING_OFF_SAMPLES:
                 break
             
-            # Stage 1: 50% thinking, 50% direct (parallel responses)
-            if idx % 2 == 0:
-                formatted = format_nemotron_for_sft(example, mode="thinking")
-            else:
+            if example.get('reasoning') == 'off':
                 formatted = format_nemotron_for_sft(example, mode="direct")
-            
-            if formatted:
-                all_examples.append(formatted)
-                used_sample_ids["nemotron_math"].append(idx)
-                count += 1
+                if formatted:
+                    formatted["source"] = "chat_reasoning_off"
+                    all_examples.append(formatted)
+                    used_sample_ids["chat_reasoning_off"].append(idx)
+                    reasoning_off_count += 1
         
-        print(f"   ✅ Loaded {count} Nemotron examples")
+        print(f"   ✅ Loaded {reasoning_off_count} chat samples with reasoning=off")
+        
+        # Re-stream for reasoning=on samples
+        chat_stream = load_dataset(
+            "nvidia/Nemotron-Post-Training-Dataset-v1",
+            split="chat",
+            streaming=True
+        )
+        
+        print(f"   📂 Collecting {STAGE_1_REASONING_ON_SAMPLES} samples with reasoning=on...")
+        reasoning_on_count = 0
+        for idx, example in enumerate(tqdm(chat_stream, total=STAGE_1_REASONING_ON_SAMPLES * 2, desc="reasoning=on")):
+            if reasoning_on_count >= STAGE_1_REASONING_ON_SAMPLES:
+                break
+            
+            if example.get('reasoning') == 'on':
+                formatted = format_nemotron_for_sft(example, mode="thinking")
+                if formatted:
+                    formatted["source"] = "chat_reasoning_on"
+                    all_examples.append(formatted)
+                    used_sample_ids["chat_reasoning_on"].append(idx)
+                    reasoning_on_count += 1
+        
+        print(f"   ✅ Loaded {reasoning_on_count} chat samples with reasoning=on")
+        
     except Exception as e:
-        print(f"   ⚠️ Could not load Nemotron: {e}")
+        print(f"   ⚠️ Could not load Nemotron chat: {e}")
+        import traceback
+        traceback.print_exc()
     
     # Update tracking
-    tracking_data = mark_samples_used("stage_1", "hicra", used_sample_ids["hicra"], tracking_data)
-    tracking_data = mark_samples_used("stage_1", "nemotron_math", used_sample_ids["nemotron_math"], tracking_data)
+    tracking_data = mark_samples_used("stage_1", "chat_reasoning_off", used_sample_ids["chat_reasoning_off"], tracking_data)
+    tracking_data = mark_samples_used("stage_1", "chat_reasoning_on", used_sample_ids["chat_reasoning_on"], tracking_data)
     
     print(f"\n   📊 Total Stage 1 examples: {len(all_examples)}")
-    print(f"   📊 Thinking mode: {sum(1 for e in all_examples if e.get('mode') == 'thinking')}")
-    print(f"   📊 Direct mode: {sum(1 for e in all_examples if e.get('mode') == 'direct')}")
+    print(f"   📊 Thinking mode (reasoning=on): {sum(1 for e in all_examples if e.get('mode') == 'thinking')}")
+    print(f"   📊 Direct mode (reasoning=off): {sum(1 for e in all_examples if e.get('mode') == 'direct')}")
     
     return Dataset.from_list(all_examples), tracking_data
 
@@ -314,83 +324,76 @@ def load_stage_2_data(tracking_data: dict):
     Load Stage 2 training data.
     
     Stage 2 focuses on:
-    - Longer reasoning chains (8K context)
-    - ALL examples in thinking mode
-    - Harder problems + code reasoning
+    - Longer reasoning chains (32K context)
+    - ALL examples in thinking mode (reasoning=on)
+    - Distribution: ~57% math, ~30% code, ~6% stem, ~7% tool_calling
     """
     print("\n📚 Loading Stage 2 Data (Extended Reasoning)...")
     print("=" * 50)
     
+    # Calculate sample counts from ratios
+    math_samples = int(STAGE_2_TOTAL_SAMPLES * STAGE_2_MATH_RATIO)
+    code_samples = int(STAGE_2_TOTAL_SAMPLES * STAGE_2_CODE_RATIO)
+    stem_samples = int(STAGE_2_TOTAL_SAMPLES * STAGE_2_STEM_RATIO)
+    tool_calling_samples = int(STAGE_2_TOTAL_SAMPLES * STAGE_2_TOOL_CALLING_RATIO)
+    
+    print(f"   Target distribution:")
+    print(f"     - Math: {math_samples} ({STAGE_2_MATH_RATIO*100:.0f}%)")
+    print(f"     - Code: {code_samples} ({STAGE_2_CODE_RATIO*100:.0f}%)")
+    print(f"     - STEM: {stem_samples} ({STAGE_2_STEM_RATIO*100:.0f}%)")
+    print(f"     - Tool Calling: {tool_calling_samples} ({STAGE_2_TOOL_CALLING_RATIO*100:.0f}%)")
+    
     all_examples = []
-    used_sample_ids = {"nemotron_math": [], "code": []}
+    used_sample_ids = {"math": [], "code": [], "stem": [], "tool_calling": []}
     
-    # Get previously used sample indices to avoid overlap
-    stage_1_nemotron = set(tracking_data.get("stage_1", {}).get("nemotron_math", []))
+    # Helper function to load from a split
+    def load_from_split(split_name: str, target_count: int, source_key: str):
+        """Load samples from a specific split, all in thinking mode."""
+        nonlocal all_examples, used_sample_ids
+        
+        print(f"\n🌊 Loading {target_count} samples from {split_name} split...")
+        try:
+            stream = load_dataset(
+                "nvidia/Nemotron-Post-Training-Dataset-v1",
+                split=split_name,
+                streaming=True
+            )
+            
+            count = 0
+            for idx, example in enumerate(tqdm(stream, total=target_count, desc=split_name)):
+                if count >= target_count:
+                    break
+                
+                # Stage 2: ALL thinking mode
+                formatted = format_nemotron_for_sft(example, mode="thinking")
+                
+                if formatted:
+                    formatted["source"] = source_key
+                    all_examples.append(formatted)
+                    used_sample_ids[source_key].append(idx)
+                    count += 1
+            
+            print(f"   ✅ Loaded {count} {split_name} examples (thinking mode)")
+            return count
+        except Exception as e:
+            print(f"   ⚠️ Could not load {split_name} split: {e}")
+            return 0
     
-    # 1. Load MORE Nemotron Math (harder problems, all thinking mode)
-    print(f"🌊 Streaming {STAGE_2_NEMOTRON_SAMPLES} NEW Nemotron math examples...")
-    try:
-        nemotron_stream = load_dataset(
-            "nvidia/Nemotron-Post-Training-Dataset-v1",
-            split="math",
-            streaming=True
-        )
-        
-        # Skip Stage 1 samples
-        start_idx = max(stage_1_nemotron) + 1 if stage_1_nemotron else 0
-        
-        count = 0
-        for idx, example in enumerate(tqdm(nemotron_stream, total=start_idx + STAGE_2_NEMOTRON_SAMPLES)):
-            if idx < start_idx:
-                continue
-            if count >= STAGE_2_NEMOTRON_SAMPLES:
-                break
-            
-            # Stage 2: ALL thinking mode (as per NVIDIA paper)
-            formatted = format_nemotron_for_sft(example, mode="thinking")
-            
-            if formatted:
-                all_examples.append(formatted)
-                used_sample_ids["nemotron_math"].append(idx)
-                count += 1
-        
-        print(f"   ✅ Loaded {count} NEW Nemotron examples (thinking mode only)")
-    except Exception as e:
-        print(f"   ⚠️ Could not load Nemotron: {e}")
-    
-    # 2. Try to load Code reasoning (optional - may not be in your dataset)
-    print(f"🔧 Attempting to load code reasoning data...")
-    try:
-        code_stream = load_dataset(
-            "nvidia/Nemotron-Post-Training-Dataset-v1",
-            split="code",
-            streaming=True
-        )
-        
-        count = 0
-        for idx, example in enumerate(tqdm(code_stream, total=STAGE_2_CODE_SAMPLES)):
-            if count >= STAGE_2_CODE_SAMPLES:
-                break
-            
-            # Reuse format function (structure is similar)
-            formatted = format_nemotron_for_sft(example, mode="thinking")
-            
-            if formatted:
-                formatted["source"] = "code"
-                all_examples.append(formatted)
-                used_sample_ids["code"].append(idx)
-                count += 1
-        
-        print(f"   ✅ Loaded {count} code examples")
-    except Exception as e:
-        print(f"   ⚠️ Could not load code split: {e}")
-        print("   (This is optional - continuing with math only)")
+    # Load from each split with the specified proportions
+    load_from_split("math", math_samples, "math")
+    load_from_split("code", code_samples, "code")
+    load_from_split("stem", stem_samples, "stem")
+    load_from_split("tool_calling", tool_calling_samples, "tool_calling")
     
     # Update tracking
-    tracking_data = mark_samples_used("stage_2", "nemotron_math", used_sample_ids["nemotron_math"], tracking_data)
-    tracking_data = mark_samples_used("stage_2", "code", used_sample_ids["code"], tracking_data)
+    for source_key in ["math", "code", "stem", "tool_calling"]:
+        tracking_data = mark_samples_used("stage_2", source_key, used_sample_ids[source_key], tracking_data)
     
     print(f"\n   📊 Total Stage 2 examples: {len(all_examples)}")
+    print(f"   📊 By category:")
+    for source_key in ["math", "code", "stem", "tool_calling"]:
+        count = len(used_sample_ids[source_key])
+        print(f"       - {source_key}: {count}")
     
     return Dataset.from_list(all_examples), tracking_data
 
@@ -439,7 +442,7 @@ def run_sft_training(dataset, stage: int, max_seq_length: int):
             print("   Run `huggingface-cli login` or set HF_TOKEN in .env")
             print("   Continuing without login (will fail for private models)...")
     
-    output_dir = f"qwen3-14b-sft-stage{stage}"
+    output_dir = f"qwen3-14b-v2-sft-stage{stage}"
     
     print(f"\n🚀 Starting Stage {stage} SFT Training")
     print("=" * 50)
@@ -450,7 +453,7 @@ def run_sft_training(dataset, stage: int, max_seq_length: int):
     # Load model - different approach for Stage 1 vs Stage 2
     if stage == 2:
         # Stage 2: Load Stage 1 checkpoint directly and continue training those adapters
-        stage_1_checkpoint = "qwen3-14b-sft-stage1"
+        stage_1_checkpoint = "qwen3-14b-v2-sft-stage1"
         if os.path.exists(stage_1_checkpoint):
             print(f"\n⏳ Loading Stage 1 checkpoint from {stage_1_checkpoint}...")
             model, tokenizer = FastLanguageModel.from_pretrained(
