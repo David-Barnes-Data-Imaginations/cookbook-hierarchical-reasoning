@@ -45,17 +45,17 @@ else:
 STAGE_1_MAX_SEQ_LENGTH = 16384   # Foundation stage
 STAGE_2_MAX_SEQ_LENGTH = 32768   # Extended reasoning stage
 
-# Stage 1 sample sizes (chat split - 50/50 reasoning on/off)
+# Stage 1 sample sizes (multi-category foundation)
 STAGE_1_TOTAL_SAMPLES = 3000
-STAGE_1_REASONING_OFF_SAMPLES = 1500  # 50%
-STAGE_1_REASONING_ON_SAMPLES = 1500   # 50%
+STAGE_1_MATH_RATIO = 0.50       # ~50%
+STAGE_1_CODE_RATIO = 0.30       # ~30%
+STAGE_1_STEM_RATIO = 0.20       # ~20%
 
-# Stage 2 sample sizes (all reasoning=on)
+# Stage 2 sample sizes (all reasoning=on, no tool_calling for shorter context compatibility)
 STAGE_2_TOTAL_SAMPLES = 3000
-STAGE_2_MATH_RATIO = 0.57       # ~57%
-STAGE_2_CODE_RATIO = 0.30       # ~30%
-STAGE_2_STEM_RATIO = 0.06       # ~6%
-STAGE_2_TOOL_CALLING_RATIO = 0.07  # ~7%
+STAGE_2_MATH_RATIO = 0.61       # ~61%
+STAGE_2_CODE_RATIO = 0.32       # ~32%
+STAGE_2_STEM_RATIO = 0.07       # ~7%
 
 # LoRA configuration
 LORA_RANK = 128
@@ -222,6 +222,20 @@ def format_nemotron_for_sft(example, mode="thinking"):
     }
 
 
+def estimate_token_length(text: str) -> int:
+    """Rough token count estimation (avg 4 chars per token for English)."""
+    return len(text) // 4
+
+
+def get_example_text_length(example) -> int:
+    """Get the total text length of an example for context length filtering."""
+    messages = example.get('messages', [])
+    total_chars = 0
+    for msg in messages:
+        total_chars += len(msg.get('content', ''))
+    return total_chars
+
+
 def filter_by_reasoning(dataset, reasoning_value: str):
     """
     Filter dataset by the 'reasoning' column value.
@@ -240,81 +254,129 @@ def filter_by_reasoning(dataset, reasoning_value: str):
 
 def load_stage_1_data(tracking_data: dict):
     """
-    Load Stage 1 training data from Nemotron chat split.
+    Load Stage 1 training data from Nemotron splits.
     
     Stage 1 focuses on:
-    - 50% chat with reasoning=off (direct responses, /no_think mode)
-    - 50% chat with reasoning=on (thinking responses, /think mode)
-    - Shorter context (16K)
+    - Multi-category foundation: ~50% math, ~30% code, ~20% stem
+    - PARALLEL RESPONSES: Each sample creates two training examples:
+      1. With /think flag and full <think>...</think> reasoning
+      2. With /no_think flag and just the direct answer
+    - Shorter context (16K) - samples exceeding this are skipped
+    
+    This implements the NVIDIA paper's "parallel responses" strategy where
+    the model sees both thinking and non-thinking examples for the same input.
     """
-    print("\n📚 Loading Stage 1 Data (Chat Foundation)...")
+    print("\n📚 Loading Stage 1 Data (Multi-Category Foundation + Parallel Responses)...")
     print("=" * 50)
-    print(f"   Target: {STAGE_1_REASONING_OFF_SAMPLES} reasoning=off + {STAGE_1_REASONING_ON_SAMPLES} reasoning=on")
+    print(f"   Max context: {STAGE_1_MAX_SEQ_LENGTH} tokens (samples exceeding this will be skipped)")
+    print(f"   🔄 Parallel mode: Each sample → 2 examples (thinking + direct)")
+    
+    # Approximate max chars (4 chars per token is conservative estimate)
+    max_chars = STAGE_1_MAX_SEQ_LENGTH * 4
+    
+    # Calculate BASE sample counts (will be doubled due to parallel responses)
+    # Halve the targets since each sample produces 2 examples
+    base_samples = STAGE_1_TOTAL_SAMPLES // 2
+    math_samples = int(base_samples * STAGE_1_MATH_RATIO)
+    code_samples = int(base_samples * STAGE_1_CODE_RATIO)
+    stem_samples = int(base_samples * STAGE_1_STEM_RATIO)
+    
+    print(f"   Target distribution (base samples, will 2x with parallel):")
+    print(f"     - Math: {math_samples} → {math_samples * 2} ({STAGE_1_MATH_RATIO*100:.0f}%)")
+    print(f"     - Code: {code_samples} → {code_samples * 2} ({STAGE_1_CODE_RATIO*100:.0f}%)")
+    print(f"     - STEM: {stem_samples} → {stem_samples * 2} ({STAGE_1_STEM_RATIO*100:.0f}%)")
     
     all_examples = []
-    used_sample_ids = {"chat_reasoning_off": [], "chat_reasoning_on": []}
+    used_sample_ids = {"math": [], "code": [], "stem": []}
+    total_skipped_long = 0
+    total_skipped_empty = 0
     
-    # Load Nemotron chat split (streaming to handle large dataset)
-    print("🌊 Streaming Nemotron chat split...")
-    try:
-        chat_stream = load_dataset(
-            "nvidia/Nemotron-Post-Training-Dataset-v1",
-            split="chat",
-            streaming=True
-        )
+    # Helper function to load from a split with parallel responses
+    def load_from_split_parallel(split_name: str, target_count: int, source_key: str):
+        """Load samples and create BOTH thinking and direct versions for each."""
+        nonlocal all_examples, used_sample_ids, total_skipped_long, total_skipped_empty
         
-        # Collect samples with reasoning=off (direct mode)
-        print(f"   📂 Collecting {STAGE_1_REASONING_OFF_SAMPLES} samples with reasoning=off...")
-        reasoning_off_count = 0
-        for idx, example in enumerate(tqdm(chat_stream, total=STAGE_1_REASONING_OFF_SAMPLES * 2, desc="reasoning=off")):
-            if reasoning_off_count >= STAGE_1_REASONING_OFF_SAMPLES:
-                break
+        print(f"\n🌊 Loading {target_count} samples from {split_name} split (→ {target_count * 2} with parallel)...")
+        skipped_long = 0
+        skipped_empty = 0
+        thinking_count = 0
+        direct_count = 0
+        
+        try:
+            stream = load_dataset(
+                "nvidia/Nemotron-Post-Training-Dataset-v1",
+                split=split_name,
+                streaming=True
+            )
             
-            if example.get('reasoning') == 'off':
-                formatted = format_nemotron_for_sft(example, mode="direct")
-                if formatted:
-                    formatted["source"] = "chat_reasoning_off"
-                    all_examples.append(formatted)
-                    used_sample_ids["chat_reasoning_off"].append(idx)
-                    reasoning_off_count += 1
-        
-        print(f"   ✅ Loaded {reasoning_off_count} chat samples with reasoning=off")
-        
-        # Re-stream for reasoning=on samples
-        chat_stream = load_dataset(
-            "nvidia/Nemotron-Post-Training-Dataset-v1",
-            split="chat",
-            streaming=True
-        )
-        
-        print(f"   📂 Collecting {STAGE_1_REASONING_ON_SAMPLES} samples with reasoning=on...")
-        reasoning_on_count = 0
-        for idx, example in enumerate(tqdm(chat_stream, total=STAGE_1_REASONING_ON_SAMPLES * 2, desc="reasoning=on")):
-            if reasoning_on_count >= STAGE_1_REASONING_ON_SAMPLES:
-                break
+            count = 0
+            for idx, example in enumerate(tqdm(stream, total=target_count * 2, desc=split_name)):
+                if count >= target_count:
+                    break
+                
+                # Check content length before processing
+                text_len = get_example_text_length(example)
+                if text_len > max_chars:
+                    skipped_long += 1
+                    continue
+                
+                # Create BOTH versions for parallel response training
+                formatted_thinking = format_nemotron_for_sft(example, mode="thinking")
+                formatted_direct = format_nemotron_for_sft(example, mode="direct")
+                
+                if formatted_thinking and formatted_direct:
+                    # Add thinking version
+                    formatted_thinking["source"] = source_key
+                    formatted_thinking["parallel_id"] = f"{source_key}_{idx}"  # Link parallel pairs
+                    all_examples.append(formatted_thinking)
+                    thinking_count += 1
+                    
+                    # Add direct (no thinking) version
+                    formatted_direct["source"] = source_key
+                    formatted_direct["parallel_id"] = f"{source_key}_{idx}"  # Same ID = same question
+                    all_examples.append(formatted_direct)
+                    direct_count += 1
+                    
+                    used_sample_ids[source_key].append(idx)
+                    count += 1
+                else:
+                    skipped_empty += 1
             
-            if example.get('reasoning') == 'on':
-                formatted = format_nemotron_for_sft(example, mode="thinking")
-                if formatted:
-                    formatted["source"] = "chat_reasoning_on"
-                    all_examples.append(formatted)
-                    used_sample_ids["chat_reasoning_on"].append(idx)
-                    reasoning_on_count += 1
-        
-        print(f"   ✅ Loaded {reasoning_on_count} chat samples with reasoning=on")
-        
-    except Exception as e:
-        print(f"   ⚠️ Could not load Nemotron chat: {e}")
-        import traceback
-        traceback.print_exc()
+            print(f"   ✅ Loaded {count} base samples → {thinking_count + direct_count} total examples")
+            print(f"      - Thinking mode: {thinking_count}")
+            print(f"      - Direct mode: {direct_count}")
+            if skipped_long > 0:
+                print(f"   ⏭️  Skipped {skipped_long} (too long)")
+            total_skipped_long += skipped_long
+            total_skipped_empty += skipped_empty
+            return count
+        except Exception as e:
+            print(f"   ⚠️ Could not load {split_name} split: {e}")
+            return 0
+    
+    # Load from each split with parallel response generation
+    load_from_split_parallel("math", math_samples, "math")
+    load_from_split_parallel("code", code_samples, "code")
+    load_from_split_parallel("stem", stem_samples, "stem")
     
     # Update tracking
-    tracking_data = mark_samples_used("stage_1", "chat_reasoning_off", used_sample_ids["chat_reasoning_off"], tracking_data)
-    tracking_data = mark_samples_used("stage_1", "chat_reasoning_on", used_sample_ids["chat_reasoning_on"], tracking_data)
+    for source_key in ["math", "code", "stem"]:
+        tracking_data = mark_samples_used("stage_1", source_key, used_sample_ids[source_key], tracking_data)
+    
+    # Count by mode for summary
+    thinking_total = sum(1 for ex in all_examples if ex.get("mode") == "thinking")
+    direct_total = sum(1 for ex in all_examples if ex.get("mode") == "direct")
     
     print(f"\n   📊 Total Stage 1 examples: {len(all_examples)}")
-    print(f"   📊 Thinking mode (reasoning=on): {sum(1 for e in all_examples if e.get('mode') == 'thinking')}")
-    print(f"   📊 Direct mode (reasoning=off): {sum(1 for e in all_examples if e.get('mode') == 'direct')}")
+    print(f"   📊 By mode:")
+    print(f"       - Thinking (/think): {thinking_total}")
+    print(f"       - Direct (/no_think): {direct_total}")
+    print(f"   📊 By category:")
+    for source_key in ["math", "code", "stem"]:
+        count = len(used_sample_ids[source_key])
+        print(f"       - {source_key}: {count} base → {count * 2} parallel")
+    print(f"   ⏭️  Total skipped (too long): {total_skipped_long}")
+    print(f"   ⏭️  Total skipped (empty): {total_skipped_empty}")
     
     return Dataset.from_list(all_examples), tracking_data
 
@@ -326,32 +388,39 @@ def load_stage_2_data(tracking_data: dict):
     Stage 2 focuses on:
     - Longer reasoning chains (32K context)
     - ALL examples in thinking mode (reasoning=on)
-    - Distribution: ~57% math, ~30% code, ~6% stem, ~7% tool_calling
+    - Distribution: ~61% math, ~32% code, ~7% stem
     """
     print("\n📚 Loading Stage 2 Data (Extended Reasoning)...")
     print("=" * 50)
+    print(f"   Max context: {STAGE_2_MAX_SEQ_LENGTH} tokens (samples exceeding this will be skipped)")
+    
+    # Approximate max chars (4 chars per token is conservative estimate)
+    max_chars = STAGE_2_MAX_SEQ_LENGTH * 4
     
     # Calculate sample counts from ratios
     math_samples = int(STAGE_2_TOTAL_SAMPLES * STAGE_2_MATH_RATIO)
     code_samples = int(STAGE_2_TOTAL_SAMPLES * STAGE_2_CODE_RATIO)
     stem_samples = int(STAGE_2_TOTAL_SAMPLES * STAGE_2_STEM_RATIO)
-    tool_calling_samples = int(STAGE_2_TOTAL_SAMPLES * STAGE_2_TOOL_CALLING_RATIO)
     
     print(f"   Target distribution:")
     print(f"     - Math: {math_samples} ({STAGE_2_MATH_RATIO*100:.0f}%)")
     print(f"     - Code: {code_samples} ({STAGE_2_CODE_RATIO*100:.0f}%)")
     print(f"     - STEM: {stem_samples} ({STAGE_2_STEM_RATIO*100:.0f}%)")
-    print(f"     - Tool Calling: {tool_calling_samples} ({STAGE_2_TOOL_CALLING_RATIO*100:.0f}%)")
     
     all_examples = []
-    used_sample_ids = {"math": [], "code": [], "stem": [], "tool_calling": []}
+    used_sample_ids = {"math": [], "code": [], "stem": []}
+    total_skipped_long = 0
+    total_skipped_empty = 0
     
     # Helper function to load from a split
     def load_from_split(split_name: str, target_count: int, source_key: str):
         """Load samples from a specific split, all in thinking mode."""
-        nonlocal all_examples, used_sample_ids
+        nonlocal all_examples, used_sample_ids, total_skipped_long, total_skipped_empty
         
         print(f"\n🌊 Loading {target_count} samples from {split_name} split...")
+        skipped_long = 0
+        skipped_empty = 0
+        
         try:
             stream = load_dataset(
                 "nvidia/Nemotron-Post-Training-Dataset-v1",
@@ -360,9 +429,15 @@ def load_stage_2_data(tracking_data: dict):
             )
             
             count = 0
-            for idx, example in enumerate(tqdm(stream, total=target_count, desc=split_name)):
+            for idx, example in enumerate(tqdm(stream, total=target_count * 2, desc=split_name)):
                 if count >= target_count:
                     break
+                
+                # Check content length before processing
+                text_len = get_example_text_length(example)
+                if text_len > max_chars:
+                    skipped_long += 1
+                    continue
                 
                 # Stage 2: ALL thinking mode
                 formatted = format_nemotron_for_sft(example, mode="thinking")
@@ -372,28 +447,35 @@ def load_stage_2_data(tracking_data: dict):
                     all_examples.append(formatted)
                     used_sample_ids[source_key].append(idx)
                     count += 1
+                else:
+                    skipped_empty += 1
             
             print(f"   ✅ Loaded {count} {split_name} examples (thinking mode)")
+            if skipped_long > 0:
+                print(f"   ⏭️  Skipped {skipped_long} (too long)")
+            total_skipped_long += skipped_long
+            total_skipped_empty += skipped_empty
             return count
         except Exception as e:
             print(f"   ⚠️ Could not load {split_name} split: {e}")
             return 0
     
-    # Load from each split with the specified proportions
+    # Load from each split with the specified proportions (no tool_calling)
     load_from_split("math", math_samples, "math")
     load_from_split("code", code_samples, "code")
     load_from_split("stem", stem_samples, "stem")
-    load_from_split("tool_calling", tool_calling_samples, "tool_calling")
     
     # Update tracking
-    for source_key in ["math", "code", "stem", "tool_calling"]:
+    for source_key in ["math", "code", "stem"]:
         tracking_data = mark_samples_used("stage_2", source_key, used_sample_ids[source_key], tracking_data)
     
     print(f"\n   📊 Total Stage 2 examples: {len(all_examples)}")
     print(f"   📊 By category:")
-    for source_key in ["math", "code", "stem", "tool_calling"]:
+    for source_key in ["math", "code", "stem"]:
         count = len(used_sample_ids[source_key])
         print(f"       - {source_key}: {count}")
+    print(f"   ⏭️  Total skipped (too long): {total_skipped_long}")
+    print(f"   ⏭️  Total skipped (empty): {total_skipped_empty}")
     
     return Dataset.from_list(all_examples), tracking_data
 
