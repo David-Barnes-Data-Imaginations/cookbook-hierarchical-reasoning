@@ -1,0 +1,211 @@
+Using pip 25.3 from /usr/local/lib/python3.12/dist-packages/pip (python 3.12)
+Collecting mamba-ssm
+  Downloading mamba_ssm-2.3.1.tar.gz (121 kB)
+  Preparing metadata (pyproject.toml): started
+  Running command Preparing metadata (pyproject.toml)
+  W0319 11:36:36.322000 104 torch/utils/cpp_extension.py:118] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+  /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          This deprecation is overdue, please update your project and remove deprecated
+          calls to avoid build errors in the future.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsWarning: `install_requires` overwritten in `pyproject.toml` (dependencies)
+    corresp(dist, value, root_dir)
+  /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: Apache Software License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /usr/local/lib/python3.12/dist-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: Apache Software License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+
+
+  torch.__version__  = 2.10.0a0+b558c986e8.nv25.11
+
+
+  running dist_info
+  creating /tmp/pip-modern-metadata-gblpbaut/mamba_ssm.egg-info
+  writing /tmp/pip-modern-metadata-gblpbaut/mamba_ssm.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-modern-metadata-gblpbaut/mamba_ssm.egg-info/dependency_links.txt
+  writing requirements to /tmp/pip-modern-metadata-gblpbaut/mamba_ssm.egg-info/requires.txt
+  writing top-level names to /tmp/pip-modern-metadata-gblpbaut/mamba_ssm.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-modern-metadata-gblpbaut/mamba_ssm.egg-info/SOURCES.txt'
+  reading manifest file '/tmp/pip-modern-metadata-gblpbaut/mamba_ssm.egg-info/SOURCES.txt'
+  reading manifest template 'MANIFEST.in'
+  warning: manifest_maker: MANIFEST.in, line 3: unknown action 'README.md'
+
+  adding license file 'LICENSE'
+  adding license file 'AUTHORS'
+  writing manifest file '/tmp/pip-modern-metadata-gblpbaut/mamba_ssm.egg-info/SOURCES.txt'
+  creating '/tmp/pip-modern-metadata-gblpbaut/mamba_ssm-2.3.1.dist-info'
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: torch in /usr/local/lib/python3.12/dist-packages (from mamba-ssm) (2.10.0a0+b558c986e8.nv25.11)
+Collecting triton (from mamba-ssm)
+  Obtaining dependency information for triton from https://files.pythonhosted.org/packages/17/5d/08201db32823bdf77a0e2b9039540080b2e5c23a20706ddba942924ebcd6/triton-3.6.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata
+  Downloading triton-3.6.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (1.7 kB)
+Requirement already satisfied: ninja in /usr/local/lib/python3.12/dist-packages (from mamba-ssm) (1.13.0)
+Requirement already satisfied: einops in /usr/local/lib/python3.12/dist-packages (from mamba-ssm) (0.8.1)
+Collecting transformers (from mamba-ssm)
+  Obtaining dependency information for transformers from https://files.pythonhosted.org/packages/b8/88/ae8320064e32679a5429a2c9ebbc05c2bf32cefb6e076f9b07f6d685a9b4/transformers-5.3.0-py3-none-any.whl.metadata
+  Downloading transformers-5.3.0-py3-none-any.whl.metadata (32 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from mamba-ssm) (25.0)
+Requirement already satisfied: setuptools>=61.0.0 in /usr/local/lib/python3.12/dist-packages (from mamba-ssm) (80.9.0)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from torch->mamba-ssm) (3.20.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in /usr/local/lib/python3.12/dist-packages (from torch->mamba-ssm) (4.15.0)
+Requirement already satisfied: sympy>=1.13.3 in /usr/local/lib/python3.12/dist-packages (from torch->mamba-ssm) (1.14.0)
+Requirement already satisfied: networkx>=2.5.1 in /usr/local/lib/python3.12/dist-packages (from torch->mamba-ssm) (3.5)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.12/dist-packages (from torch->mamba-ssm) (3.1.6)
+Requirement already satisfied: fsspec>=0.8.5 in /usr/local/lib/python3.12/dist-packages (from torch->mamba-ssm) (2025.10.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy>=1.13.3->torch->mamba-ssm) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /usr/local/lib/python3.12/dist-packages (from jinja2->torch->mamba-ssm) (3.0.3)
+Collecting huggingface-hub<2.0,>=1.3.0 (from transformers->mamba-ssm)
+  Obtaining dependency information for huggingface-hub<2.0,>=1.3.0 from https://files.pythonhosted.org/packages/6f/75/ca21955d6117a394a482c7862ce96216239d0e3a53133ae8510727a8bcfa/huggingface_hub-1.7.1-py3-none-any.whl.metadata
+  Downloading huggingface_hub-1.7.1-py3-none-any.whl.metadata (13 kB)
+Requirement already satisfied: numpy>=1.17 in /usr/local/lib/python3.12/dist-packages (from transformers->mamba-ssm) (2.1.0)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from transformers->mamba-ssm) (6.0.3)
+Requirement already satisfied: regex!=2019.12.17 in /usr/local/lib/python3.12/dist-packages (from transformers->mamba-ssm) (2025.11.3)
+Requirement already satisfied: tokenizers<=0.23.0,>=0.22.0 in /usr/local/lib/python3.12/dist-packages (from transformers->mamba-ssm) (0.22.1)
+Collecting typer (from transformers->mamba-ssm)
+  Obtaining dependency information for typer from https://files.pythonhosted.org/packages/4a/91/48db081e7a63bb37284f9fbcefda7c44c277b18b0e13fbc36ea2335b71e6/typer-0.24.1-py3-none-any.whl.metadata
+  Downloading typer-0.24.1-py3-none-any.whl.metadata (16 kB)
+Requirement already satisfied: safetensors>=0.4.3 in /usr/local/lib/python3.12/dist-packages (from transformers->mamba-ssm) (0.6.2)
+Requirement already satisfied: tqdm>=4.27 in /usr/local/lib/python3.12/dist-packages (from transformers->mamba-ssm) (4.67.1)
+Collecting hf-xet<2.0.0,>=1.4.2 (from huggingface-hub<2.0,>=1.3.0->transformers->mamba-ssm)
+  Obtaining dependency information for hf-xet<2.0.0,>=1.4.2 from https://files.pythonhosted.org/packages/68/47/d6cf4a39ecf6c7705f887a46f6ef5c8455b44ad9eb0d391aa7e8a2ff7fea/hf_xet-1.4.2-cp37-abi3-manylinux_2_28_aarch64.whl.metadata
+  Downloading hf_xet-1.4.2-cp37-abi3-manylinux_2_28_aarch64.whl.metadata (4.9 kB)
+Requirement already satisfied: httpx<1,>=0.23.0 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub<2.0,>=1.3.0->transformers->mamba-ssm) (0.28.1)
+Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.3.0->transformers->mamba-ssm) (4.11.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.3.0->transformers->mamba-ssm) (2025.10.5)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.3.0->transformers->mamba-ssm) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.3.0->transformers->mamba-ssm) (3.11)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.3.0->transformers->mamba-ssm) (0.16.0)
+Requirement already satisfied: sniffio>=1.1 in /usr/local/lib/python3.12/dist-packages (from anyio->httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.3.0->transformers->mamba-ssm) (1.3.1)
+Requirement already satisfied: click>=8.2.1 in /usr/local/lib/python3.12/dist-packages (from typer->transformers->mamba-ssm) (8.3.0)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.12/dist-packages (from typer->transformers->mamba-ssm) (1.5.4)
+Requirement already satisfied: rich>=12.3.0 in /usr/local/lib/python3.12/dist-packages (from typer->transformers->mamba-ssm) (14.2.0)
+Collecting annotated-doc>=0.0.2 (from typer->transformers->mamba-ssm)
+  Obtaining dependency information for annotated-doc>=0.0.2 from https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl.metadata
+  Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich>=12.3.0->typer->transformers->mamba-ssm) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.12/dist-packages (from rich>=12.3.0->typer->transformers->mamba-ssm) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py>=2.2.0->rich>=12.3.0->typer->transformers->mamba-ssm) (0.1.2)
+Downloading transformers-5.3.0-py3-none-any.whl (10.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.7/10.7 MB 50.4 MB/s  0:00:00
+Downloading huggingface_hub-1.7.1-py3-none-any.whl (616 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 616.3/616.3 kB 80.7 MB/s  0:00:00
+Downloading hf_xet-1.4.2-cp37-abi3-manylinux_2_28_aarch64.whl (4.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.0/4.0 MB 66.1 MB/s  0:00:00
+Downloading triton-3.6.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (176.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 176.1/176.1 MB 65.8 MB/s  0:00:02
+Downloading typer-0.24.1-py3-none-any.whl (56 kB)
+Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+Building wheels for collected packages: mamba-ssm
+  Building wheel for mamba-ssm (pyproject.toml): started
+  Running command Building wheel for mamba-ssm (pyproject.toml)
+  W0319 11:36:40.783000 131 torch/utils/cpp_extension.py:118] No CUDA runtime is found, using CUDA_HOME='/usr/local/cuda'
+  /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsDeprecationWarning: `project.license` as a TOML table is deprecated
+  !!
+
+          ********************************************************************************
+          Please use a simple string containing a SPDX expression for `project.license`. You can also use `project.license-files`. (Both options available on setuptools>=77.0.0).
+
+          This deprecation is overdue, please update your project and remove deprecated
+          calls to avoid build errors in the future.
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    corresp(dist, value, root_dir)
+  /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:82: SetuptoolsWarning: `install_requires` overwritten in `pyproject.toml` (dependencies)
+    corresp(dist, value, root_dir)
+  /usr/local/lib/python3.12/dist-packages/setuptools/config/_apply_pyprojecttoml.py:61: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: Apache Software License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    dist._finalize_license_expression()
+  /usr/local/lib/python3.12/dist-packages/setuptools/dist.py:759: SetuptoolsDeprecationWarning: License classifiers are deprecated.
+  !!
+
+          ********************************************************************************
+          Please consider removing the following classifiers in favor of a SPDX license expression:
+
+          License :: OSI Approved :: Apache Software License
+
+          See https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#license for details.
+          ********************************************************************************
+
+  !!
+    self._finalize_license_expression()
+
+
+  torch.__version__  = 2.10.0a0+b558c986e8.nv25.11
+
+
+  running bdist_wheel
+  Guessing wheel URL:  https://github.com/state-spaces/mamba/releases/download/v2.3.1/mamba_ssm-2.3.1+cu13torch25.11cxx11abiTRUE-cp312-cp312-linux_x86_64.whl
+  Raw wheel path /tmp/pip-ephem-wheel-cache-qy1g3hzw/wheels/28/83/54/d45107838fec575b93f5d723f56351cee19a1b13bcd4ec9f3f/tmpdsm9vjjn/.tmp-7ln6mstl/mamba_ssm-2.3.1-cp312-cp312-linux_aarch64.whl
+  Building wheel for mamba-ssm (pyproject.toml): finished with status 'done'
+  Created wheel for mamba-ssm: filename=mamba_ssm-2.3.1-cp312-cp312-linux_aarch64.whl size=351771688 sha256=808783fab21ab92b3ef5a8a9abaf27ec17a9fb3292f0ea1be440b77f0065d156
+  Stored in directory: /tmp/pip-ephem-wheel-cache-qy1g3hzw/wheels/28/83/54/d45107838fec575b93f5d723f56351cee19a1b13bcd4ec9f3f
+Successfully built mamba-ssm
+Installing collected packages: triton, hf-xet, annotated-doc, typer, huggingface-hub, transformers, mamba-ssm
+  changing mode of /usr/local/bin/proton to 755
+  changing mode of /usr/local/bin/proton-viewer to 755
+  Attempting uninstall: hf-xet
+    Found existing installation: hf-xet 1.2.0
+    Uninstalling hf-xet-1.2.0:
+      Removing file or directory /usr/local/lib/python3.12/dist-packages/hf_xet-1.2.0.dist-info/
+      Removing file or directory /usr/local/lib/python3.12/dist-packages/hf_xet/
+      Successfully uninstalled hf-xet-1.2.0
+  changing mode of /usr/local/bin/typer to 755
+  Attempting uninstall: huggingface-hub
+    Found existing installation: huggingface_hub 1.1.2
+    Uninstalling huggingface_hub-1.1.2:
+      Removing file or directory /usr/local/bin/hf
+      Removing file or directory /usr/local/bin/tiny-agents
+      Removing file or directory /usr/local/lib/python3.12/dist-packages/huggingface_hub-1.1.2.dist-info/
+      Removing file or directory /usr/local/lib/python3.12/dist-packages/huggingface_hub/
+      Successfully uninstalled huggingface_hub-1.1.2
+  changing mode of /usr/local/bin/hf to 755
+  changing mode of /usr/local/bin/tiny-agents to 755
+  changing mode of /usr/local/bin/transformers to 755
+
+Successfully installed annotated-doc-0.0.4 hf-xet-1.4.2 huggingface-hub-1.7.1 mamba-ssm-2.3.1 transformers-5.3.0 triton-3.6.0 typer-0.24.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.

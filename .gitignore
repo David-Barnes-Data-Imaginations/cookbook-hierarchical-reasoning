@@ -3,7 +3,10 @@ __pycache__/
 *.py[cod]
 # .ipynb_checkpoints/
 .vscode/
-
+.venv/
+.venv-new/
+Automodel/
+checkpoints/
 # Secrets
 persona-forge-*.json
 
@@ -14,3 +17,4 @@ unsloth_compiled_cache/
 gemma-3-reasoning-output/
 llama-1b-reasoning-*/
 *.safetensors
+stage1_data.jsonl

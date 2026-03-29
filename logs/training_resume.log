@@ -1,0 +1,22 @@
+/home/david-barnes/.local/lib/python3.12/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  queued_call()
+usage: train_resume.py [-h] [--dry-run] [--checkpoint-dir CHECKPOINT_DIR]
+                       [--force-new] [--seq-length SEQ_LENGTH]
+                       [--batch-size BATCH_SIZE]
+                       [--gradient-accumulation GRADIENT_ACCUMULATION]
+train_resume.py: error: unrecognized arguments: --output_dir ministral-sft-unsloth --model_name_or_path mistralai/Ministral-8B-Instruct-2410 --dataset_path stage1_data.jsonl --num_train_epochs 1.5 --max_seq_length 131072 --per_device_train_batch_size 8 --gradient_accumulation_steps 4 --learning_rate 2e-5 --warmup_steps 100 --lr_scheduler_type cosine --logging_steps 50 --save_steps 50 --packing True --use_lora True --lora_r 64 --lora_alpha 64 --lora_dropout 0.0 --optim adamw_bnb_8bit --resume_from_checkpoint
+======================================================================
+  GPU INITIALIZATION CHECK
+======================================================================
+✅ GPU detected: NVIDIA GB10
+   Total memory: 130.60 GB
+   CUDA version: 13.0
+======================================================================
+
+🦥 Unsloth: Will patch your computer to enable 2x faster free finetuning.
+Unsloth: Your Flash Attention 2 installation seems to be broken. Using Xformers instead. No performance changes will be seen.
+🦥 Unsloth Zoo will now patch everything to make training faster!
