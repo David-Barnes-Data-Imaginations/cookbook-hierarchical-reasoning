@@ -28,21 +28,10 @@ from typing import Dict, List, Tuple
 # The DGX Spark runs in NVIDIA container with unified memory architecture.
 # We need to ensure CUDA is properly initialized before importing torch.
 
-# Set environment variables for single-GPU mode (DGX Spark has one GB10 GPU)
-os.environ.setdefault("RANK", "0")
-os.environ.setdefault("WORLD_SIZE", "1")
-os.environ.setdefault("LOCAL_RANK", "0")
-os.environ.setdefault("MASTER_ADDR", "localhost")
-os.environ.setdefault("MASTER_PORT", "12355")
-
-# Force CUDA visibility
-os.environ.setdefault("CUDA_VISIBLE_DEVICES", "0")
 
 # DGX Spark specific settings for Blackwell architecture
 os.environ["TORCH_CUDA_ARCH_LIST"] = "12.0"
 
-# Disable distributed training (single GPU)
-os.environ["NCCL_P2P_DISABLE"] = "1"
 
 # ============================================================================
 # VERIFY CUDA AVAILABILITY BEFORE IMPORTING
@@ -116,13 +105,13 @@ TOKEN_ESTIMATE_FACTOR = 4  # chars per token (conservative estimate)
 
 # Dataset configuration - 30,000 total samples
 DATASET_CONFIG = {
-    "chat": 9000,
-    "conversational_agent": 1000,
-    "instruction_following": 1000,
-    "math": 6000,
-    "science": 2000,
-    "swe": 8000,
-    "terminal_agent": 3000,
+    "chat": 27000,
+    "conversational_agent": 5000,
+    "instruction_following": 5000,
+    "math": 20000,
+    "science": 8000,
+    "swe": 26000,
+    "terminal_agent": 9000,
 }
 
 # Project paths
